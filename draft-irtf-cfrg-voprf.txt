@@ -5,10 +5,10 @@
 Network Working Group                                        A. Davidson
 Internet-Draft                                            Brave Software
 Intended status: Informational                          A. Faz-Hernandez
-Expires: 25 March 2022                                       N. Sullivan
+Expires: 10 April 2022                                       N. Sullivan
                                                                C.A. Wood
                                                               Cloudflare
-                                                       21 September 2021
+                                                          7 October 2021
 
 
    Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 March 2022.
+   This Internet-Draft will expire on 10 April 2022.
 
 Copyright Notice
 
@@ -284,87 +284,86 @@ Table of Contents
 
    The (V)OPRF protocol in this document has two primary dependencies:
 
-   *  "GG": A prime-order group implementing the API described below in
+   *  GG: A prime-order group implementing the API described below in
       Section 2.1, with base point defined in the corresponding
       reference for each group.  (See Section 4 for these base points.)
 
-   *  "Hash": A cryptographic hash function that is indifferentiable
-      from a Random Oracle, whose output length is Nh bytes long.
+   *  Hash: A cryptographic hash function that is indifferentiable from
+      a Random Oracle, whose output length is Nh bytes long.
 
-   Section 4 specifies ciphersuites as combinations of "GG" and "Hash".
+   Section 4 specifies ciphersuites as combinations of GG and Hash.
 
 2.1.  Prime-Order Group Dependency
 
    In this document, we assume the construction of an additive, prime-
-   order group "GG" for performing all mathematical operations.  Such
-   groups are uniquely determined by the choice of the prime "p" that
-   defines the order of the group.  We use "GF(p)" to represent the
-   finite field of order "p".  For the purpose of understanding and
-   implementing this document, we take "GF(p)" to be equal to the set of
-   integers defined by "{0, 1, ..., p-1}".
+   order group GG for performing all mathematical operations.  Such
+   groups are uniquely determined by the choice of the prime p that
+   defines the order of the group.  We use GF(p) to represent the finite
+   field of order p.  For the purpose of understanding and implementing
+   this document, we take GF(p) to be equal to the set of integers
+   defined by {0, 1, ..., p-1}.
 
-   The fundamental group operation is addition "+" with identity element
-   "I".  For any elements "A" and "B" of the group "GG", "A + B = B + A"
-   is also a member of "GG".  Also, for any "A" in "GG", there exists an
-   element "-A" such that "A + (-A) = (-A) + A = I".  Scalar
-   multiplication is equivalent to the repeated application of the group
-   operation on an element A with itself "r-1" times, this is denoted as
-   "r*A = A + ... + A".  For any element "A", "p*A=I".  We denote "G" as
-   the fixed generator of the group.  Scalar base multiplication is
-   equivalent to the repeated application of the group operation "G"
-   with itself "r-1" times, this is denoted as "ScalarBaseMult(r)".  The
-   set of scalars corresponds to "GF(p)".  This document uses types
-   "Element" and "Scalar" to denote elements of the group "GG" and its
-   set of scalars, respectively.
+   The fundamental group operation is addition + with identity element
+   I.  For any elements A and B of the group GG, A + B = B + A is also a
+   member of GG.  Also, for any A in GG, there exists an element -A such
+   that A + (-A) = (-A) + A = I.  Scalar multiplication is equivalent to
+   the repeated application of the group operation on an element A with
+   itself r-1 times, this is denoted as r*A = A + ... + A.  For any
+   element A, p*A=I.  We denote G as the fixed generator of the group.
+   Scalar base multiplication is equivalent to the repeated application
+   of the group operation G with itself r-1 times, this is denoted as
+   ScalarBaseMult(r).  The set of scalars corresponds to GF(p).  This
+   document uses types Element and Scalar to denote elements of the
+   group GG and its set of scalars, respectively.
 
    We now detail a number of member functions that can be invoked on a
-   prime-order group "GG".
+   prime-order group GG.
 
-   *  Order(): Outputs the order of "GG" (i.e. "p").
+   *  Order(): Outputs the order of GG (i.e. p).
 
-   *  Identity(): Outputs the identity element of the group (i.e.  "I").
+   *  Identity(): Outputs the identity element of the group (i.e.  I).
 
-   *  HashToGroup(x): A member function of "GG" that deterministically
-      maps an array of bytes "x" to an element of "GG".  The map must
-      ensure that, for any adversary receiving "R = HashToGroup(x)", it
-      is computationally difficult to reverse the mapping.  This
-      function is optionally parameterized by a domain separation tag
-      (DST); see Section 4.
+   *  HashToGroup(x): A member function of GG that deterministically
+      maps an array of bytes x to an element of GG.  The map must ensure
+      that, for any adversary receiving R = HashToGroup(x), it is
+      computationally difficult to reverse the mapping.  This function
+      is optionally parameterized by a domain separation tag (DST); see
+      Section 4.
 
-   *  HashToScalar(x): A member function of "GG" that deterministically
-      maps an array of bytes "x" to an element in GF(p).  This function
-      is optionally parameterized by a DST; see Section 4.
+   *  HashToScalar(x): A member function of GG that deterministically
+      maps an array of bytes x to an element in GF(p).  This function is
+      optionally parameterized by a DST; see Section 4.
 
-   *  RandomScalar(): A member function of "GG" that chooses at random a
+   *  RandomScalar(): A member function of GG that chooses at random a
       non-zero element in GF(p).
 
-   *  SerializeElement(A): A member function of "GG" that maps a group
-      element "A" to a unique byte array "buf" of fixed length "Ne".
-      The output type of this function is "SerializedElement".
+   *  SerializeElement(A): A member function of GG that maps a group
+      element A to a unique byte array buf of fixed length Ne.  The
+      output type of this function is SerializedElement.
 
-   *  DeserializeElement(buf): A member function of "GG" that maps a
-      byte array "buf" to a group element "A", or fails if the input is
-      not a valid byte representation of an element.  This function can
-      raise a DeserializeError if deserialization fails or "A" is the
-      identity element of the group; see Section 6.4.
+   *  DeserializeElement(buf): A member function of GG that maps a byte
+      array buf to a group element A, or fails if the input is not a
+      valid byte representation of an element.  This function can raise
+      a DeserializeError if deserialization fails or A is the identity
+      element of the group; see Section 6.4.
 
-   *  SerializeScalar(s): A member function of "GG" that maps a scalar
-      element "s" to a unique byte array "buf" of fixed length "Ns".
-      The output type of this function is "SerializedScalar".
+   *  SerializeScalar(s): A member function of GG that maps a scalar
+      element s to a unique byte array buf of fixed length Ns.  The
+      output type of this function is SerializedScalar.
 
-   *  DeserializeScalar(buf): A member function of "GG" that maps a byte
-      array "buf" to a scalar "s", or fails if the input is not a valid
-      byte representation of a scalar.  This function can raise a
+   *  DeserializeScalar(buf): A member function of GG that maps a byte
+      array buf to a scalar s, or fails if the input is not a valid byte
+      representation of a scalar.  This function can raise a
       DeserializeError if deserialization fails; see Section 6.4.
 
-   Two functions can be used for generating a (V)OPRF key pair ("skS",
-   "pkS") where "skS" is a non-zero integer less than "p" and "pkS =
-   ScalarBaseMult(skS)": "GenerateKeyPair" and "DeriveKeyPair".
-   "GenerateKeyPair" is a randomized function that outputs a fresh key
-   pair ("skS", "pkS") upon every invocation.  "DeriveKeyPair" is a
-   deterministic function that generates private key "skS" from a random
-   byte string "seed", which SHOULD have at least "Ns" bytes of entropy,
-   and then computes "pkS = ScalarBaseMult(skS)".
+   Two functions can be used for generating a (V)OPRF key pair (skS,
+   pkS) where skS is a non-zero integer less than p and pkS =
+   ScalarBaseMult(skS): GenerateKeyPair and DeriveKeyPair.
+   GenerateKeyPair is a randomized function that outputs a fresh key
+   pair (skS, pkS) upon every invocation.  DeriveKeyPair is a
+   deterministic function that generates private key skS from a random
+   byte string seed, which SHOULD have at least Ns bytes of entropy, and
+   then computes pkS = ScalarBaseMult(skS).
 
    It is convenient in cryptographic applications to instantiate such
    prime-order groups using elliptic curves, such as those detailed in
@@ -384,19 +383,18 @@ Table of Contents
    The following functions and notation are used throughout the
    document.
 
-   *  For any object "x", we write "len(x)" to denote its length in
-      bytes.
+   *  For any object x, we write len(x) to denote its length in bytes.
 
-   *  For two byte arrays "x" and "y", write "x || y" to denote their
+   *  For two byte arrays x and y, write x || y to denote their
       concatenation.
 
    *  I2OSP and OS2IP: Convert a byte array to and from a non-negative
       integer as described in [RFC8017].  Note that these functions
       operate on byte arrays in big-endian byte order.
 
-   *  For any two byte strings "a" and "b", "CT_EQUAL(a, b)" represents
-      constant-time equality between "a" and "b" which returns "true" if
-      "a" and "b" are equal and "false" otherwise.
+   *  For any two byte strings a and b, CT_EQUAL(a, b) represents
+      constant-time equality between a and b which returns true if a and
+      b are equal and false otherwise.
 
    Data structure descriptions use TLS notation [RFC8446], Section 3.
 
@@ -432,12 +430,12 @@ Table of Contents
 
    To achieve verifiability, as in the original work of [JKK14], we
    provide a zero-knowledge proof that the key provided as input by the
-   server in the "Evaluate" function is the same key as it used to
-   produce their public key.  As an example of the nature of attacks
-   that this prevents, this ensures that the server uses the same
-   private key for computing the VOPRF output and does not attempt to
-   "tag" individual clients with select keys.  This proof must not
-   reveal the server's long-term private key to the client.
+   server in the Evaluate function is the same key as it used to produce
+   their public key.  As an example of the nature of attacks that this
+   prevents, this ensures that the server uses the same private key for
+   computing the VOPRF output and does not attempt to "tag" individual
+   clients with select keys.  This proof must not reveal the server's
+   long-term private key to the client.
 
    The following one-byte values distinguish between these two modes:
 
@@ -455,8 +453,8 @@ Table of Contents
 
    Both participants agree on the mode and a choice of ciphersuite that
    is used before the protocol exchange.  Once established, the base
-   mode of the protocol runs to compute "output = F(skS, input, info)"
-   as follows:
+   mode of the protocol runs to compute output = F(skS, input, info) as
+   follows:
 
     Client(input, info)                               Server(skS, info)
   ----------------------------------------------------------------------
@@ -472,11 +470,11 @@ Table of Contents
 
     output = Finalize(input, blind, evaluatedElement, blindedElement, info)
 
-   In "Blind" the client generates a blinded element and blinding data.
-   The server computes the (V)OPRF evaluation in "Evaluate" over the
-   client's blinded element, and optional public information "info".  In
-   "Finalize" the client unblinds the server response and produces a
-   byte array corresponding to the output of the OPRF protocol.
+   In Blind the client generates a blinded element and blinding data.
+   The server computes the (V)OPRF evaluation in Evaluate over the
+   client's blinded element, and optional public information info.  In
+   Finalize the client unblinds the server response and produces a byte
+   array corresponding to the output of the OPRF protocol.
 
    In the verifiable mode of the protocol, the server additionally
    computes a proof in Evaluate.  The client verifies this proof using
@@ -487,8 +485,8 @@ Table of Contents
 
    Both modes of the OPRF involve an offline setup phase.  In this
    phase, both the client and server create a context used for executing
-   the online phase of the protocol.  The key pair ("skS", "pkS") should
-   be generated by calling either "GenerateKeyPair" or "DeriveKeyPair".
+   the online phase of the protocol.  The key pair (skS, pkS) should be
+   generated by calling either GenerateKeyPair or DeriveKeyPair.
 
    The base mode setup functions for creating client and server contexts
    are below:
@@ -535,34 +533,32 @@ Table of Contents
    *  contextString, a domain separation tag taken from the client or
       server context.
 
-   The data types "PrivateInput" and "PublicInput" are opaque byte
-   strings of arbitrary length no larger than 2^13 octets.  "Proof" is a
-   concatenated sequence of two "SerializedScalar" values, as shown
-   below.
+   The data types PrivateInput and PublicInput are opaque byte strings
+   of arbitrary length no larger than 2^13 octets.  Proof is a
+   concatenated sequence of two SerializedScalar values, as shown below.
 
    SerializedScalar Proof[2*Ns];
 
 3.3.1.  Server Context
 
    The ServerContext encapsulates the context string constructed during
-   setup and the (V)OPRF key pair.  It has three functions, "Evaluate",
-   "FullEvaluate" and "VerifyFinalize" described below.  "Evaluate"
-   takes serialized representations of blinded group elements from the
-   client as inputs and optionally the public metadata input as
-   determined by the server and/or the public metadata input as sent by
-   the client.
+   setup and the (V)OPRF key pair.  It has three functions, Evaluate,
+   FullEvaluate and VerifyFinalize described below.  Evaluate takes
+   serialized representations of blinded group elements from the client
+   as inputs and optionally the public metadata input as determined by
+   the server and/or the public metadata input as sent by the client.
 
-   "FullEvaluate" takes PrivateInput values, and it is useful for
+   FullEvaluate takes PrivateInput values, and it is useful for
    applications that need to compute the whole OPRF protocol on the
    server side only.
 
-   "VerifyFinalize" takes PrivateInput values and their corresponding
-   output digests from "Finalize" as input, and returns true if the
-   inputs match the outputs.
+   VerifyFinalize takes PrivateInput values and their corresponding
+   output digests from Finalize as input, and returns true if the inputs
+   match the outputs.
 
-   Note that "VerifyFinalize" and "FullEvaluate" are not used in the
-   main OPRF protocol.  They are exposed as an API for building higher-
-   level protocols.
+   Note that VerifyFinalize and FullEvaluate are not used in the main
+   OPRF protocol.  They are exposed as an API for building higher-level
+   protocols.
 
 3.3.1.1.  Evaluate
 
@@ -650,9 +646,9 @@ Table of Contents
 3.3.2.  VerifiableServerContext
 
    The VerifiableServerContext extends the base ServerContext with an
-   augmented "Evaluate()" function.  This function produces a proof that
-   "skS" was used in computing the result.  It makes use of the helper
-   functions "GenerateProof" and "ComputeComposites", described below.
+   augmented Evaluate() function.  This function produces a proof that
+   skS was used in computing the result.  It makes use of the helper
+   functions GenerateProof and ComputeComposites, described below.
 
 3.3.2.1.  Evaluate
 
@@ -683,8 +679,8 @@ Table of Contents
      evaluatedElement = GG.SerializeElement(Z)
      return evaluatedElement, proof
 
-   The helper functions "GenerateProof" and "ComputeComposites" are
-   defined below.
+   The helper functions GenerateProof and ComputeComposites are defined
+   below.
 
 3.3.2.2.  GenerateProof
 
@@ -734,12 +730,12 @@ Table of Contents
 
 3.3.2.2.1.  Batching inputs
 
-   Unlike other functions, "ComputeComposites" takes lists of inputs,
+   Unlike other functions, ComputeComposites takes lists of inputs,
    rather than a single input.  Applications can take advantage of this
-   functionality by invoking "GenerateProof" on batches of inputs to
+   functionality by invoking GenerateProof on batches of inputs to
    produce a combined, constant-size proof.  (In the pseudocode above,
-   the single inputs "blindedElement" and "evaluatedElement" are passed
-   as one-item lists to "ComputeComposites".)
+   the single inputs blindedElement and evaluatedElement are passed as
+   one-item lists to ComputeComposites.)
 
    In particular, servers can produce a single, constant-sized proof for
    N client inputs sent in a single request, rather than one proof per
@@ -749,15 +745,15 @@ Table of Contents
 
 3.3.2.2.2.  Fresh Randomness
 
-   We note here that it is essential that a different "r" value is used
-   for every invocation.  If this is not done, then this may leak "skS"
-   as is possible in Schnorr or (EC)DSA scenarios where fresh randomness
-   is not used.
+   We note here that it is essential that a different r value is used
+   for every invocation.  If this is not done, then this may leak skS as
+   is possible in Schnorr or (EC)DSA scenarios where fresh randomness is
+   not used.
 
 3.3.2.3.  ComputeComposites
 
-   The definition of "ComputeComposites" is given below.  This function
-   is used both on generation and verification of the proof.
+   The definition of ComputeComposites is given below.  This function is
+   used both on generation and verification of the proof.
 
    Input:
 
@@ -794,7 +790,7 @@ Table of Contents
     return [M, Z]
 
    If the private key is known, as is the case for the server, this
-   function can be optimized as shown in "ComputeCompositesFast" below.
+   function can be optimized as shown in ComputeCompositesFast below.
 
    Input:
 
@@ -834,16 +830,16 @@ Table of Contents
 3.3.3.  Client Context
 
    The ClientContext encapsulates the context string constructed during
-   setup.  It has two functions, "Blind()" and "Finalize()", as
-   described below.  It also has an internal function, "Unblind()",
-   which is used by "Finalize".  The implementation of these functions
-   varies depending on the mode.
+   setup.  It has two functions, Blind() and Finalize(), as described
+   below.  It also has an internal function, Unblind(), which is used by
+   Finalize.  The implementation of these functions varies depending on
+   the mode.
 
 3.3.3.1.  Blind
 
    Blinding is done multiplicatively.
 
-   "Blind" is implemented as follows:
+   Blind is implemented as follows:
 
    Input:
 
@@ -861,7 +857,7 @@ Table of Contents
 
      return blind, blindedElement
 
-   The inverse "Unblind" is implemented as follows.
+   The inverse Unblind is implemented as follows.
 
    Input:
 
@@ -883,8 +879,8 @@ Table of Contents
 
 3.3.3.2.  Finalize
 
-   "Finalize" depends on the internal "Unblind" function.  In this mode,
-   "Finalize" does not include all inputs listed in Section 3.1.  These
+   Finalize depends on the internal Unblind function.  In this mode,
+   Finalize does not include all inputs listed in Section 3.1.  These
    additional inputs are only useful for the verifiable mode, described
    in Section 3.3.4.3.
 
@@ -912,15 +908,15 @@ Table of Contents
 3.3.4.  VerifiableClientContext
 
    The VerifiableClientContext extends the base ClientContext with the
-   desired server public key "pkS" with an augmented "Unblind()"
-   function.  This function verifies an evaluation proof using "pkS".
-   It makes use of the helper function "ComputeComposites" described
-   above.  It has one helper function, "VerifyProof()", defined below.
+   desired server public key pkS with an augmented Unblind() function.
+   This function verifies an evaluation proof using pkS.  It makes use
+   of the helper function ComputeComposites described above.  It has one
+   helper function, VerifyProof(), defined below.
 
 3.3.4.1.  VerifyProof
 
-   This algorithm outputs a boolean "verified" which indicates whether
-   the proof inside of the evaluation verifies correctly, or not.
+   This algorithm outputs a boolean verified which indicates whether the
+   proof inside of the evaluation verifies correctly, or not.
 
    Input:
 
@@ -968,7 +964,7 @@ Table of Contents
 
 3.3.4.2.  Verifiable Unblind
 
-   The inverse "VerifiableUnblind" is implemented as follows.  This
+   The inverse VerifiableUnblind is implemented as follows.  This
    function can raise an exception if element deserialization or proof
    verification fails.
 
@@ -1022,7 +1018,7 @@ Output:
 
   opaque output[Nh]
 
-def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blindedElement, pkS, proof, info):
+def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS, proof, info):
   unblindedElement = VerifiableUnblind(blind, evaluatedElement, blindedElement, pkS, proof, info)
 
   finalizeDST = "Finalize-" || contextString
@@ -1041,18 +1037,18 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
    throughout.  A ciphersuite contains instantiations of the following
    functionalities:
 
-   *  "GG": A prime-order group exposing the API detailed in
-      Section 2.1, with base point defined in the corresponding
-      reference for each group.  Each group also specifies HashToGroup,
-      HashToScalar, and serialization functionalities.  For HashToGroup,
-      the domain separation tag (DST) is constructed in accordance with
-      the recommendations in [I-D.irtf-cfrg-hash-to-curve], Section 3.1.
+   *  GG: A prime-order group exposing the API detailed in Section 2.1,
+      with base point defined in the corresponding reference for each
+      group.  Each group also specifies HashToGroup, HashToScalar, and
+      serialization functionalities.  For HashToGroup, the domain
+      separation tag (DST) is constructed in accordance with the
+      recommendations in [I-D.irtf-cfrg-hash-to-curve], Section 3.1.
       For HashToScalar, each group specifies an integer order that is
       used in reducing integer values to a member of the corresponding
       scalar field.
 
-   *  "Hash": A cryptographic hash function that is indifferentiable
-      from a Random Oracle, whose output length is Nh bytes long.
+   *  Hash: A cryptographic hash function that is indifferentiable from
+      a Random Oracle, whose output length is Nh bytes long.
 
    This section specifies ciphersuites with supported groups and hash
    functions.  For each ciphersuite, contextString is that which is
@@ -1067,19 +1063,18 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
       -  HashToGroup(): Use hash_to_ristretto255
          [I-D.irtf-cfrg-hash-to-curve] with DST = "HashToGroup-" ||
-         contextString, and "expand_message" = "expand_message_xmd"
-         using SHA-512.
+         contextString, and expand_message = expand_message_xmd using
+         SHA-512.
 
-      -  HashToScalar(): Compute "uniform_bytes" using "expand_message"
-         = "expand_message_xmd", DST = "HashToScalar-" || contextString,
-         and output length 64, interpret "uniform_bytes" as a 512-bit
-         integer in little-endian order, and reduce the integer modulo
-         "Order()".
+      -  HashToScalar(): Compute uniform_bytes using expand_message =
+         expand_message_xmd, DST = "HashToScalar-" || contextString, and
+         output length 64, interpret uniform_bytes as a 512-bit integer
+         in little-endian order, and reduce the integer modulo Order().
 
       -  Serialization: Both group elements and scalars are encoded in
          Ne = Ns = 32 bytes.  For group elements, use the 'Encode' and
          'Decode' functions from [RISTRETTO].  For scalars, ensure they
-         are fully reduced modulo "Order()" and in little-endian order.
+         are fully reduced modulo Order() and in little-endian order.
 
    *  Hash: SHA-512, and Nh = 64.
 
@@ -1091,19 +1086,18 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
       -  HashToGroup(): Use hash_to_decaf448
          [I-D.irtf-cfrg-hash-to-curve] with DST = "HashToGroup-" ||
-         contextString, and "expand_message" = "expand_message_xof"
-         using SHAKE-256.
+         contextString, and expand_message = expand_message_xof using
+         SHAKE-256.
 
-      -  HashToScalar(): Compute "uniform_bytes" using "expand_message"
-         = "expand_message_xof", DST = "HashToScalar-" || contextString,
-         and output length 64, interpret "uniform_bytes" as a 512-bit
-         integer in little-endian order, and reduce the integer modulo
-         "Order()".
+      -  HashToScalar(): Compute uniform_bytes using expand_message =
+         expand_message_xof, DST = "HashToScalar-" || contextString, and
+         output length 64, interpret uniform_bytes as a 512-bit integer
+         in little-endian order, and reduce the integer modulo Order().
 
       -  Serialization: Both group elements and scalars are encoded in
          Ne = Ns = 56 bytes.  For group elements, use the 'Encode' and
          'Decode' functions from [RISTRETTO].  For scalars, ensure they
-         are fully reduced modulo "Order()" and in little-endian order.
+         are fully reduced modulo Order() and in little-endian order.
 
    *  Hash: SHAKE-256, and Nh = 64.
 
@@ -1118,14 +1112,14 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
          "HashToGroup-" || contextString.
 
       -  HashToScalar(): Use hash_to_field from
-         [I-D.irtf-cfrg-hash-to-curve] using L = 48,
-         "expand_message_xmd" with SHA-256, DST = "HashToScalar-" ||
-         contextString, and prime modulus equal to "Order()".
+         [I-D.irtf-cfrg-hash-to-curve] using L = 48, expand_message_xmd
+         with SHA-256, DST = "HashToScalar-" || contextString, and prime
+         modulus equal to Order().
 
       -  Serialization: Elements are serialized as Ne = 33 byte strings
          using compressed point encoding for the curve [SEC1].  Scalars
          are serialized as Ns = 32 byte strings by fully reducing the
-         value modulo "Order()" and in big-endian order.
+         value modulo Order() and in big-endian order.
 
    *  Hash: SHA-256, and Nh = 32.
 
@@ -1140,14 +1134,14 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
          "HashToGroup-" || contextString.
 
       -  HashToScalar(): Use hash_to_field from
-         [I-D.irtf-cfrg-hash-to-curve] using L = 72,
-         "expand_message_xmd" with SHA-384, DST = "HashToScalar-" ||
-         contextString, and prime modulus equal to "Order()".
+         [I-D.irtf-cfrg-hash-to-curve] using L = 72, expand_message_xmd
+         with SHA-384, DST = "HashToScalar-" || contextString, and prime
+         modulus equal to Order().
 
       -  Serialization: Elements are serialized as Ne = 49 byte strings
          using compressed point encoding for the curve [SEC1].  Scalars
          are serialized as Ns = 48 byte strings by fully reducing the
-         value modulo "Order()" and in big-endian order.
+         value modulo Order() and in big-endian order.
 
    *  Hash: SHA-384, and Nh = 48.
 
@@ -1162,14 +1156,14 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
          "HashToGroup-" || contextString.
 
       -  HashToScalar(): Use hash_to_field from
-         [I-D.irtf-cfrg-hash-to-curve] using L = 98,
-         "expand_message_xmd" with SHA-512, DST = "HashToScalar-" ||
-         contextString, and prime modulus equal to "Order()".
+         [I-D.irtf-cfrg-hash-to-curve] using L = 98, expand_message_xmd
+         with SHA-512, DST = "HashToScalar-" || contextString, and prime
+         modulus equal to Order().
 
       -  Serialization: Elements are serialized as Ne = 67 byte strings
          using compressed point encoding for the curve [SEC1].  Scalars
          are serialized as Ns = 66 byte strings by fully reducing the
-         value modulo "Order()" and in big-endian order.
+         value modulo Order() and in big-endian order.
 
    *  Hash: SHA-512, and Nh = 64.
 
@@ -1183,15 +1177,15 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 5.1.  Error Considerations
 
    Some VOPRF APIs specified in this document are fallible.  For
-   example, "Finalize" and "Evaluate" can fail if any element received
-   from the peer fails deserialization.  The explicit errors generated
+   example, Finalize and Evaluate can fail if any element received from
+   the peer fails deserialization.  The explicit errors generated
    throughout this specification, along with the conditions that lead to
    each error, are as follows:
 
-   *  "VerifyError": VOPRF proof verification failed; Section 3.3.4.2.
+   *  VerifyError: VOPRF proof verification failed; Section 3.3.4.2.
 
-   *  "DeserializeError": Group element or scalar deserialization
-      failure; Section 2.1.
+   *  DeserializeError: Group element or scalar deserialization failure;
+      Section 2.1.
 
    The errors in this document are meant as a guide to implementors.
    They are not an exhaustive list of all the errors an implementation
@@ -1200,7 +1194,7 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
 5.2.  Public Metadata
 
-   The optional and public "info" string included in the protocol allows
+   The optional and public info string included in the protocol allows
    clients and servers to cryptographically bind additional data to the
    VOPRF output.  This metadata is known to both parties at the start of
    the protocol.  It is RECOMMENDED that this metadata be constructed
@@ -1275,7 +1269,7 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
    Each assumption states that the problems specified below are
    computationally difficult to solve in relation to a particular choice
-   of security parameter "sp".
+   of security parameter sp.
 
    Let GG = GG(sp) be a group with prime-order p, and let GF(p) be a
    finite field of order p.
@@ -1426,20 +1420,20 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
    For P-256, P-384, and P-521 ciphersuites, this function ensures that
    the input, when treated as a big-endian integer, is a value between 0
-   and "Order()".  For ristretto255 and decaf448, this function ensures
+   and Order().  For ristretto255 and decaf448, this function ensures
    that the input, when treated as a little-endian integer, is a valud
-   between 0 and "Order()".
+   between 0 and Order().
 
 6.5.  Hashing to Group
 
    A critical requirement of implementing the prime-order group using
    elliptic curves is a method to instantiate the function
-   "GG.HashToGroup", that maps inputs to group elements.  In the
-   elliptic curve setting, this deterministically maps inputs x (as byte
-   arrays) to uniformly chosen points on the curve.
+   GG.HashToGroup, that maps inputs to group elements.  In the elliptic
+   curve setting, this deterministically maps inputs x (as byte arrays)
+   to uniformly chosen points on the curve.
 
    In the security proof of the construction Hash is modeled as a random
-   oracle.  This implies that any instantiation of "GG.HashToGroup" must
+   oracle.  This implies that any instantiation of GG.HashToGroup must
    be pre-image and collision resistant.  In Section 4 we give
    instantiations of this functionality based on the functions described
    in [I-D.irtf-cfrg-hash-to-curve].  Consequently, any OPRF
@@ -1477,8 +1471,8 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
    To ensure no information is leaked during protocol execution, all
    operations that use secret data MUST run in constant time.
    Operations that SHOULD run in constant time include all prime-order
-   group operations and proof-specific operations ("GenerateProof()" and
-   "VerifyProof()").
+   group operations and proof-specific operations (GenerateProof() and
+   VerifyProof()).
 
 6.8.  Key Rotation
 
@@ -1633,24 +1627,24 @@ Appendix A.  Test Vectors
 
    *  "Info": The public info, an opaque byte string.
 
-   *  "Blind": The blind value output by "Blind()", a serialized
-      "Scalar" of "Ns" bytes long.
+   *  "Blind": The blind value output by Blind(), a serialized Scalar of
+      Ns bytes long.
 
-   *  "BlindedElement": The blinded value output by "Blind()", a
-      serialized "Element" of "Ne" bytes long.
+   *  "BlindedElement": The blinded value output by Blind(), a
+      serialized Element of Ne bytes long.
 
-   *  "EvaluatedElement": The evaluated element output by "Evaluate()",
-      a serialized "Element" of "Ne" bytes long.
+   *  "EvaluatedElement": The evaluated element output by Evaluate(), a
+      serialized Element of Ne bytes long.
 
-   *  "Proof": The serialized "Proof" output from "GenerateProof()"
-      (only listed for verifiable mode test vectors), composed of two
-      serialized "Scalar" values each of "Ns" bytes long.
+   *  "Proof": The serialized Proof output from GenerateProof() (only
+      listed for verifiable mode test vectors), composed of two
+      serialized Scalar values each of Ns bytes long.
 
-   *  "ProofRandomScalar": The random scalar "r" computed in
-      "GenerateProof()" (only listed for verifiable mode test vectors),
-      a serialized "Scalar" of "Ns" bytes long.
+   *  "ProofRandomScalar": The random scalar r computed in
+      GenerateProof() (only listed for verifiable mode test vectors), a
+      serialized Scalar of Ns bytes long.
 
-   *  "Output": The OPRF output, a byte string of length "Nh" bytes.
+   *  "Output": The OPRF output, a byte string of length Nh bytes.
 
    Test vectors with batch size B > 1 have inputs separated by a comma
    ",".  Applicable test vectors will have B different values for the
@@ -1659,11 +1653,11 @@ Appendix A.  Test Vectors
 
    Base mode and verifiable mode uses multiplicative blinding.
 
-   The server key material, "pkSm" and "skSm", are listed under the mode
-   for each ciphersuite.  Both "pkSm" and "skSm" are the serialized
-   values of "pkS" and "skS", respectively, as used in the protocol.
-   Each key pair is derived from a "seed", which is listed as well,
-   using the following implementation of "DeriveKeyPair":
+   The server key material, pkSm and skSm, are listed under the mode for
+   each ciphersuite.  Both pkSm and skSm are the serialized values of
+   pkS and skS, respectively, as used in the protocol.  Each key pair is
+   derived from a seed, which is listed as well, using the following
+   implementation of DeriveKeyPair:
 
    def DeriveKeyPair(mode, suite, seed):
      skS = GG.HashToScalar(seed, DST = "HashToScalar-" || contextString)

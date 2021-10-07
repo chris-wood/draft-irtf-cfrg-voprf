@@ -22,11 +22,11 @@ evaluating the underlying PRF with just a public key. This document
 specifies OPRF and VOPRF constructions instantiated within prime-order
 groups, including elliptic curves. 
     " name="description">
-<meta content="xml2rfc 3.9.1" name="generator">
+<meta content="xml2rfc 3.10.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-irtf-cfrg-voprf-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.9.1
+  xml2rfc 3.10.0
     Python 3.9.5
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -1030,11 +1030,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">OPRFs</td>
-<td class="right">September 2021</td>
+<td class="right">October 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Davidson, et al.</td>
-<td class="center">Expires 25 March 2022</td>
+<td class="center">Expires 10 April 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1047,12 +1047,12 @@ address div.right {
 <dd class="internet-draft">draft-irtf-cfrg-voprf-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-09-21" class="published">21 September 2021</time>
+<time datetime="2021-10-07" class="published">7 October 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-03-25">25 March 2022</time></dd>
+<dd class="expires"><time datetime="2022-04-10">10 April 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1116,7 +1116,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 March 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 April 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1144,8 +1144,8 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty toc ulBare compact">
-<li class="ulEmpty toc ulBare compact" id="section-toc.1-1.1">
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
@@ -1156,7 +1156,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.2">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-preliminaries" class="xref">Preliminaries</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
@@ -1167,7 +1167,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.3">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-voprf-protocol" class="xref">(V)OPRF Protocol</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
@@ -1195,7 +1195,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.4">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-ciphersuites" class="xref">Ciphersuites</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
@@ -1215,7 +1215,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.5">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-application-considerations" class="xref">Application Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
@@ -1226,7 +1226,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.6">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
@@ -1269,10 +1269,10 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.7">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.8">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
@@ -1283,7 +1283,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.9">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-test-vectors" class="xref">Test Vectors</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
@@ -1343,7 +1343,7 @@ groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.10">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
@@ -1711,7 +1711,7 @@ long-term private key to the client.<a href="#section-3-2" class="pilcrow">¶</a
 <p id="section-3.1-1">Both participants agree on the mode and a choice of ciphersuite that is
 used before the protocol exchange. Once established, the base mode of
 the protocol runs to compute <code>output = F(skS, input, info)</code> as follows:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.1-2">
+<div class="alignLeft art-text artwork" id="section-3.1-2">
 <pre>
     Client(input, info)                               Server(skS, info)
   ----------------------------------------------------------------------
@@ -1749,7 +1749,7 @@ both the client and server create a context used for executing the
 online phase of the protocol. The key pair (<code>skS</code>, <code>pkS</code>) should be
 generated by calling either <code>GenerateKeyPair</code> or <code>DeriveKeyPair</code>.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">The base mode setup functions for creating client and server contexts are below:<a href="#section-3.2-2" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.2-3">
+<div class="alignLeft art-text artwork" id="section-3.2-3">
 <pre>
 def SetupBaseServer(suite, skS):
   contextString =
@@ -1764,7 +1764,7 @@ def SetupBaseClient(suite):
 </div>
 <p id="section-3.2-4">The verifiable mode setup functions for creating client and server
 contexts are below:<a href="#section-3.2-4" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.2-5">
+<div class="alignLeft art-text artwork" id="section-3.2-5">
 <pre>
 def SetupVerifiableServer(suite, skS, pkS):
   contextString =
@@ -1800,7 +1800,7 @@ context.<a href="#section-3.3-2.2" class="pilcrow">¶</a>
 <p id="section-3.3-3">The data types <code>PrivateInput</code> and <code>PublicInput</code> are opaque byte strings
 of arbitrary length no larger than 2^13 octets. <code>Proof</code> is a concatenated
 sequence of two <code>SerializedScalar</code> values, as shown below.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3-4">
+<div class="alignLeft art-text artwork" id="section-3.3-4">
 <pre>
 SerializedScalar Proof[2*Ns];
 </pre><a href="#section-3.3-4" class="pilcrow">¶</a>
@@ -1827,7 +1827,7 @@ protocol. They are exposed as an API for building higher-level protocols.<a href
             <h5 id="name-evaluate">
 <a href="#section-3.3.1.1" class="section-number selfRef">3.3.1.1. </a><a href="#name-evaluate" class="section-name selfRef">Evaluate</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.1.1-1">
+<div class="alignLeft art-text artwork" id="section-3.3.1.1-1">
 <pre>
 Input:
 
@@ -1860,7 +1860,7 @@ def Evaluate(skS, blindedElement, info):
             <h5 id="name-fullevaluate">
 <a href="#section-3.3.1.2" class="section-number selfRef">3.3.1.2. </a><a href="#name-fullevaluate" class="section-name selfRef">FullEvaluate</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.1.2-1">
+<div class="alignLeft art-text artwork" id="section-3.3.1.2-1">
 <pre>
 Input:
 
@@ -1897,7 +1897,7 @@ def FullEvaluate(skS, input):
             <h5 id="name-verifyfinalize">
 <a href="#section-3.3.1.3" class="section-number selfRef">3.3.1.3. </a><a href="#name-verifyfinalize" class="section-name selfRef">VerifyFinalize</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.1.3-1">
+<div class="alignLeft art-text artwork" id="section-3.3.1.3-1">
 <pre>
 Input:
 
@@ -1945,7 +1945,7 @@ functions <code>GenerateProof</code> and <code>ComputeComposites</code>, describ
             <h5 id="name-evaluate-2">
 <a href="#section-3.3.2.1" class="section-number selfRef">3.3.2.1. </a><a href="#name-evaluate-2" class="section-name selfRef">Evaluate</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.2.1-1">
+<div class="alignLeft art-text artwork" id="section-3.3.2.1-1">
 <pre>
 Input:
 
@@ -1984,7 +1984,7 @@ below.<a href="#section-3.3.2.1-2" class="pilcrow">¶</a></p>
             <h5 id="name-generateproof">
 <a href="#section-3.3.2.2" class="section-number selfRef">3.3.2.2. </a><a href="#name-generateproof" class="section-name selfRef">GenerateProof</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.2.2-1">
+<div class="alignLeft art-text artwork" id="section-3.3.2.2-1">
 <pre>
 Input:
 
@@ -2068,7 +2068,7 @@ used.<a href="#section-3.3.2.2.2-1" class="pilcrow">¶</a></p>
             </h5>
 <p id="section-3.3.2.3-1">The definition of <code>ComputeComposites</code> is given below. This function is
 used both on generation and verification of the proof.<a href="#section-3.3.2.3-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.2.3-2">
+<div class="alignLeft art-text artwork" id="section-3.3.2.3-2">
 <pre>
 Input:
 
@@ -2107,7 +2107,7 @@ def ComputeComposites(B, Cs, Ds):
 </div>
 <p id="section-3.3.2.3-3">If the private key is known, as is the case for the server, this function
 can be optimized as shown in <code>ComputeCompositesFast</code> below.<a href="#section-3.3.2.3-3" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.2.3-4">
+<div class="alignLeft art-text artwork" id="section-3.3.2.3-4">
 <pre>
 Input:
 
@@ -2166,7 +2166,7 @@ on the mode.<a href="#section-3.3.3-1" class="pilcrow">¶</a></p>
             </h5>
 <p id="section-3.3.3.1-1">Blinding is done multiplicatively.<a href="#section-3.3.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.3.1-2"><code>Blind</code> is implemented as follows:<a href="#section-3.3.3.1-2" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.3.1-3">
+<div class="alignLeft art-text artwork" id="section-3.3.3.1-3">
 <pre>
 Input:
 
@@ -2186,7 +2186,7 @@ def Blind(input):
 </pre><a href="#section-3.3.3.1-3" class="pilcrow">¶</a>
 </div>
 <p id="section-3.3.3.1-4">The inverse <code>Unblind</code> is implemented as follows.<a href="#section-3.3.3.1-4" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.3.1-5">
+<div class="alignLeft art-text artwork" id="section-3.3.3.1-5">
 <pre>
 Input:
 
@@ -2217,7 +2217,7 @@ def Unblind(blind, evaluatedElement):
 <p id="section-3.3.3.2-1"><code>Finalize</code> depends on the internal <code>Unblind</code> function. In this mode, <code>Finalize</code>
 does not include all inputs listed in <a href="#protocol-overview" class="xref">Section 3.1</a>. These additional
 inputs are only useful for the verifiable mode, described in <a href="#verifiable-finalize" class="xref">Section 3.3.4.3</a>.<a href="#section-3.3.3.2-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.3.2-2">
+<div class="alignLeft art-text artwork" id="section-3.3.3.2-2">
 <pre>
 Input:
 
@@ -2262,7 +2262,7 @@ helper function, <code>VerifyProof()</code>, defined below.<a href="#section-3.3
             </h5>
 <p id="section-3.3.4.1-1">This algorithm outputs a boolean <code>verified</code> which indicates whether the
 proof inside of the evaluation verifies correctly, or not.<a href="#section-3.3.4.1-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.4.1-2">
+<div class="alignLeft art-text artwork" id="section-3.3.4.1-2">
 <pre>
 Input:
 
@@ -2319,7 +2319,7 @@ def VerifyProof(A, B, C, D, proof):
 <p id="section-3.3.4.2-1">The inverse <code>VerifiableUnblind</code> is implemented as follows. This function
 can raise an exception if element deserialization or proof verification
 fails.<a href="#section-3.3.4.2-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3.3.4.2-2">
+<div class="alignLeft art-text artwork" id="section-3.3.4.2-2">
 <pre>
 Input:
 
@@ -2362,7 +2362,7 @@ def VerifiableUnblind(blind, evaluatedElement, blindedElement, pkS, proof, info)
             <h5 id="name-verifiable-finalize">
 <a href="#section-3.3.4.3" class="section-number selfRef">3.3.4.3. </a><a href="#name-verifiable-finalize" class="section-name selfRef">Verifiable Finalize</a>
             </h5>
-<div class="artwork art-text alignLeft" id="section-3.3.4.3-1">
+<div class="alignLeft art-text artwork" id="section-3.3.4.3-1">
 <pre>
 Input:
 
@@ -2379,7 +2379,7 @@ Output:
 
   opaque output[Nh]
 
-def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blindedElement, pkS, proof, info):
+def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS, proof, info):
   unblindedElement = VerifiableUnblind(blind, evaluatedElement, blindedElement, pkS, proof, info)
 
   finalizeDST = "Finalize-" || contextString
@@ -2758,7 +2758,7 @@ batching technique.<a href="#section-6.2.2-1" class="pilcrow">¶</a></p>
 the assumption that the One-More Gap DH is computationally difficult to
 solve.<a href="#section-6.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2.2-3">The (N,Q)-One-More Gap DH (OMDH) problem asks the following.<a href="#section-6.2.2-3" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-6.2.2-4">
+<div class="alignLeft art-text artwork" id="section-6.2.2-4">
 <pre>
     Given:
     - G, k * G, and (G_1, ... , G_N), all elements of GG;
@@ -2789,7 +2789,7 @@ composability (UC) security model.<a href="#section-6.2.2-5" class="pilcrow">¶<
 <p id="section-6.2.3-1">A side-effect of our OPRF design is that it allows instantiation of a
 oracle for constructing Q-strong-DH (Q-sDH) samples. The Q-Strong-DH
 problem asks the following.<a href="#section-6.2.3-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-6.2.3-2">
+<div class="alignLeft art-text artwork" id="section-6.2.3-2">
 <pre>
     Given G1, G2, h*G2, (h^2)*G2, ..., (h^Q)*G2; for G1 and G2
     generators of GG.
@@ -3139,7 +3139,7 @@ each ciphersuite. Both <code>pkSm</code> and <code>skSm</code> are the serialize
 <code>pkS</code> and <code>skS</code>, respectively, as used in the protocol. Each key pair
 is derived from a <code>seed</code>, which is listed as well, using the following
 implementation of <code>DeriveKeyPair</code>:<a href="#appendix-A-5" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="appendix-A-6">
+<div class="alignLeft art-text artwork" id="appendix-A-6">
 <pre>
 def DeriveKeyPair(mode, suite, seed):
   skS = GG.HashToScalar(seed, DST = "HashToScalar-" || contextString)
@@ -3157,7 +3157,7 @@ def DeriveKeyPair(mode, suite, seed):
           <h4 id="name-base-mode">
 <a href="#appendix-A.1.1" class="section-number selfRef">A.1.1. </a><a href="#name-base-mode" class="section-name selfRef">Base Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.1-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3
@@ -3170,7 +3170,7 @@ skSm = caeff69352df4905a9121a4997704ca8cee1524a110819eb87deba1a39ec1
             <h5 id="name-test-vector-1-batch-size-1">
 <a href="#appendix-A.1.1.1" class="section-number selfRef">A.1.1.1. </a><a href="#name-test-vector-1-batch-size-1" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.1.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.1.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3192,7 +3192,7 @@ e
             <h5 id="name-test-vector-2-batch-size-1">
 <a href="#appendix-A.1.1.2" class="section-number selfRef">A.1.1.2. </a><a href="#name-test-vector-2-batch-size-1" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.1.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.1.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3216,7 +3216,7 @@ b
           <h4 id="name-verifiable-mode">
 <a href="#appendix-A.1.2" class="section-number selfRef">A.1.2. </a><a href="#name-verifiable-mode" class="section-name selfRef">Verifiable Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.2-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3
@@ -3231,7 +3231,7 @@ pkSm = 0c0254e22063cae3e1bae02fb6fa20882664a117c0278eda6bda3372c0dd9
             <h5 id="name-test-vector-1-batch-size-1-2">
 <a href="#appendix-A.1.2.1" class="section-number selfRef">A.1.2.1. </a><a href="#name-test-vector-1-batch-size-1-2" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.1.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.2.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3257,7 +3257,7 @@ a
             <h5 id="name-test-vector-2-batch-size-1-2">
 <a href="#appendix-A.1.2.2" class="section-number selfRef">A.1.2.2. </a><a href="#name-test-vector-2-batch-size-1-2" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.1.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.2.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3283,7 +3283,7 @@ b
             <h5 id="name-test-vector-3-batch-size-2">
 <a href="#appendix-A.1.2.3" class="section-number selfRef">A.1.2.3. </a><a href="#name-test-vector-3-batch-size-2" class="section-name selfRef">Test Vector 3, Batch Size 2</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.1.2.3-1">
+<div class="alignLeft art-text artwork" id="appendix-A.1.2.3-1">
 <pre>
 Input = 00,5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3322,7 +3322,7 @@ fde147cf69807b8971fb2c316eb572be2b5bf491813bfec0a20668d6d07b0b
           <h4 id="name-base-mode-2">
 <a href="#appendix-A.2.1" class="section-number selfRef">A.2.1. </a><a href="#name-base-mode-2" class="section-name selfRef">Base Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.1-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3
@@ -3335,7 +3335,7 @@ e916d9ab1a60dc905f0e56631903ecd4ae6e15291776d61460b
             <h5 id="name-test-vector-1-batch-size-1-3">
 <a href="#appendix-A.2.1.1" class="section-number selfRef">A.2.1.1. </a><a href="#name-test-vector-1-batch-size-1-3" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.2.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.1.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3357,7 +3357,7 @@ Output = df8f910c3b84d1f3ca6afd1992768608a20f2ad7b770e9d89d303c88ba1
             <h5 id="name-test-vector-2-batch-size-1-3">
 <a href="#appendix-A.2.1.2" class="section-number selfRef">A.2.1.2. </a><a href="#name-test-vector-2-batch-size-1-3" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.2.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.1.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3381,7 +3381,7 @@ b
           <h4 id="name-verifiable-mode-2">
 <a href="#appendix-A.2.2" class="section-number selfRef">A.2.2. </a><a href="#name-verifiable-mode-2" class="section-name selfRef">Verifiable Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.2-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3
@@ -3396,7 +3396,7 @@ pkSm = b6e2751176d57836fe1dfbdbbdc78a1b5c5a52f831226c9d8dfdf5daf8f46
             <h5 id="name-test-vector-1-batch-size-1-4">
 <a href="#appendix-A.2.2.1" class="section-number selfRef">A.2.2.1. </a><a href="#name-test-vector-1-batch-size-1-4" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.2.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.2.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3424,7 +3424,7 @@ d
             <h5 id="name-test-vector-2-batch-size-1-4">
 <a href="#appendix-A.2.2.2" class="section-number selfRef">A.2.2.2. </a><a href="#name-test-vector-2-batch-size-1-4" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.2.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.2.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3452,7 +3452,7 @@ Output = 2753e222528f1ee5fcc6ad4bf1ca953e5d3b47c1dfae85710f46a0a030c
             <h5 id="name-test-vector-3-batch-size-2-2">
 <a href="#appendix-A.2.2.3" class="section-number selfRef">A.2.2.3. </a><a href="#name-test-vector-3-batch-size-2-2" class="section-name selfRef">Test Vector 3, Batch Size 2</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.2.2.3-1">
+<div class="alignLeft art-text artwork" id="appendix-A.2.2.3-1">
 <pre>
 Input = 00,5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3496,7 +3496,7 @@ d,2753e222528f1ee5fcc6ad4bf1ca953e5d3b47c1dfae85710f46a0a030c07f5905
           <h4 id="name-base-mode-3">
 <a href="#appendix-A.3.1" class="section-number selfRef">A.3.1. </a><a href="#name-base-mode-3" class="section-name selfRef">Base Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.3.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.1-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3
@@ -3509,7 +3509,7 @@ skSm = a1b2355828f2c76de6749af9d093bd9fe0f2cada3ec653cd9a6d3126a7a78
             <h5 id="name-test-vector-1-batch-size-1-5">
 <a href="#appendix-A.3.1.1" class="section-number selfRef">A.3.1.1. </a><a href="#name-test-vector-1-batch-size-1-5" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.3.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.1.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3530,7 +3530,7 @@ f8133
             <h5 id="name-test-vector-2-batch-size-1-5">
 <a href="#appendix-A.3.1.2" class="section-number selfRef">A.3.1.2. </a><a href="#name-test-vector-2-batch-size-1-5" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.3.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.1.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3553,7 +3553,7 @@ Output = eca4df985f7c49b091c3ce4217be1f26cdc6a148b681ed1f1638d09dfd2
           <h4 id="name-verifiable-mode-3">
 <a href="#appendix-A.3.2" class="section-number selfRef">A.3.2. </a><a href="#name-verifiable-mode-3" class="section-name selfRef">Verifiable Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.3.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.2-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3
@@ -3568,7 +3568,7 @@ ed892
             <h5 id="name-test-vector-1-batch-size-1-6">
 <a href="#appendix-A.3.2.1" class="section-number selfRef">A.3.2.1. </a><a href="#name-test-vector-1-batch-size-1-6" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.3.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.2.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3593,7 +3593,7 @@ Output = c74d46cc93e578f7048bc6b852cd9bc1d9ebb90c586308f9202b9deedc8
             <h5 id="name-test-vector-2-batch-size-1-6">
 <a href="#appendix-A.3.2.2" class="section-number selfRef">A.3.2.2. </a><a href="#name-test-vector-2-batch-size-1-6" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.3.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.2.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3618,7 +3618,7 @@ Output = 90a9f5ff4208a5505d1b7ed65eb233bb61b4c999ffa0d8cd1d98fb717b9
             <h5 id="name-test-vector-3-batch-size-2-3">
 <a href="#appendix-A.3.2.3" class="section-number selfRef">A.3.2.3. </a><a href="#name-test-vector-3-batch-size-2-3" class="section-name selfRef">Test Vector 3, Batch Size 2</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.3.2.3-1">
+<div class="alignLeft art-text artwork" id="appendix-A.3.2.3-1">
 <pre>
 Input = 00,5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3656,7 +3656,7 @@ Output = c74d46cc93e578f7048bc6b852cd9bc1d9ebb90c586308f9202b9deedc8
           <h4 id="name-base-mode-4">
 <a href="#appendix-A.4.1" class="section-number selfRef">A.4.1. </a><a href="#name-base-mode-4" class="section-name selfRef">Base Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.4.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.1-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3
@@ -3669,7 +3669,7 @@ cf48e36c7764d32a67639bfcd796b025919
             <h5 id="name-test-vector-1-batch-size-1-7">
 <a href="#appendix-A.4.1.1" class="section-number selfRef">A.4.1.1. </a><a href="#name-test-vector-1-batch-size-1-7" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.4.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.1.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3690,7 +3690,7 @@ Output = 7413a7a2cd0db71f8293e6147b27d96129e58b0a5acd0c47797678ec9a0
             <h5 id="name-test-vector-2-batch-size-1-7">
 <a href="#appendix-A.4.1.2" class="section-number selfRef">A.4.1.2. </a><a href="#name-test-vector-2-batch-size-1-7" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.4.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.1.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3713,7 +3713,7 @@ a6048571b56538d067c04a001a95fee3f1cd5
           <h4 id="name-verifiable-mode-4">
 <a href="#appendix-A.4.2" class="section-number selfRef">A.4.2. </a><a href="#name-verifiable-mode-4" class="section-name selfRef">Verifiable Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.4.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.2-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3
@@ -3728,7 +3728,7 @@ pkSm = 032e820b6dcb36cd07afa12a8c3b96787efcc5dfabc6dfda3883e943f8903
             <h5 id="name-test-vector-1-batch-size-1-8">
 <a href="#appendix-A.4.2.1" class="section-number selfRef">A.4.2.1. </a><a href="#name-test-vector-1-batch-size-1-8" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.4.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.2.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3754,7 +3754,7 @@ Output = b0c5ea069414267cdaa0e0196b8def5b3db392a30005cb31c1af6c5e106
             <h5 id="name-test-vector-2-batch-size-1-8">
 <a href="#appendix-A.4.2.2" class="section-number selfRef">A.4.2.2. </a><a href="#name-test-vector-2-batch-size-1-8" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.4.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.2.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3780,7 +3780,7 @@ a6357cb81622e7c49218558d60000b28fb01a
             <h5 id="name-test-vector-3-batch-size-2-4">
 <a href="#appendix-A.4.2.3" class="section-number selfRef">A.4.2.3. </a><a href="#name-test-vector-3-batch-size-2-4" class="section-name selfRef">Test Vector 3, Batch Size 2</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.4.2.3-1">
+<div class="alignLeft art-text artwork" id="appendix-A.4.2.3-1">
 <pre>
 Input = 00,5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3821,7 +3821,7 @@ Output = b0c5ea069414267cdaa0e0196b8def5b3db392a30005cb31c1af6c5e106
           <h4 id="name-base-mode-5">
 <a href="#appendix-A.5.1" class="section-number selfRef">A.5.1. </a><a href="#name-base-mode-5" class="section-name selfRef">Base Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.5.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.1-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
@@ -3836,7 +3836,7 @@ ecf
             <h5 id="name-test-vector-1-batch-size-1-9">
 <a href="#appendix-A.5.1.1" class="section-number selfRef">A.5.1.1. </a><a href="#name-test-vector-1-batch-size-1-9" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.5.1.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.1.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3861,7 +3861,7 @@ Output = 61eea8fedfa9338dd22fac279f1f3f9e96693919c59ea3918c7a441115e
             <h5 id="name-test-vector-2-batch-size-1-9">
 <a href="#appendix-A.5.1.2" class="section-number selfRef">A.5.1.2. </a><a href="#name-test-vector-2-batch-size-1-9" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.5.1.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.1.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3888,7 +3888,7 @@ d1015de7713d3bdb121212a68de2ece73bf72e41738a01c23428753c44e3dd39b5de
           <h4 id="name-verifiable-mode-5">
 <a href="#appendix-A.5.2" class="section-number selfRef">A.5.2. </a><a href="#name-verifiable-mode-5" class="section-name selfRef">Verifiable Mode</a>
           </h4>
-<div class="artwork art-text alignLeft" id="appendix-A.5.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.2-1">
 <pre>
 seed = a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
 3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a
@@ -3906,7 +3906,7 @@ pkSm = 0201ee4e2eaa74728f577f4bb282c5440cd454fdee1d79b15a36d34b5e5a1
             <h5 id="name-test-vector-1-batch-size-1-10">
 <a href="#appendix-A.5.2.1" class="section-number selfRef">A.5.2.1. </a><a href="#name-test-vector-1-batch-size-1-10" class="section-name selfRef">Test Vector 1, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.5.2.1-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.2.1-1">
 <pre>
 Input = 00
 Info = 7465737420696e666f
@@ -3938,7 +3938,7 @@ Output = c51295e2a03ba59f1538734316e0d70dd81f95daba2f7b5ac4906c56ce8
             <h5 id="name-test-vector-2-batch-size-1-10">
 <a href="#appendix-A.5.2.2" class="section-number selfRef">A.5.2.2. </a><a href="#name-test-vector-2-batch-size-1-10" class="section-name selfRef">Test Vector 2, Batch Size 1</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.5.2.2-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.2.2-1">
 <pre>
 Input = 5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
@@ -3970,7 +3970,7 @@ Output = 7462f460340a52f7b7609c5e1c5e2d5334d43da7631cb549bb65163a05d
             <h5 id="name-test-vector-3-batch-size-2-5">
 <a href="#appendix-A.5.2.3" class="section-number selfRef">A.5.2.3. </a><a href="#name-test-vector-3-batch-size-2-5" class="section-name selfRef">Test Vector 3, Batch Size 2</a>
             </h5>
-<div class="artwork art-text alignLeft" id="appendix-A.5.2.3-1">
+<div class="alignLeft art-text artwork" id="appendix-A.5.2.3-1">
 <pre>
 Input = 00,5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
 Info = 7465737420696e666f
