@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-07T00:40:55.311679+00:00",
+  "timestamp": "2021-10-10T00:40:58.556586+00:00",
   "repo": "cfrg/draft-irtf-cfrg-voprf",
   "labels": [
     {
@@ -4057,6 +4057,48 @@
           "updatedAt": "2021-09-30T16:03:19Z"
         }
       ]
+    },
+    {
+      "number": 288,
+      "id": "I_kwDOBphpts484Nm6",
+      "title": "Remove input from Finalize DST",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/288",
+      "state": "OPEN",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "chris-wood"
+      ],
+      "labels": [],
+      "body": "In Finalize, we include `evaluatedElement` in the hash input, which seems redundant with `input`. We could probably drop `input` from this step, which would simplify the API quite a bit too.",
+      "createdAt": "2021-10-08T18:36:03Z",
+      "updatedAt": "2021-10-09T09:30:49Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bytemare",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This would also avoid to keep it in a state :)",
+          "createdAt": "2021-10-09T09:30:49Z",
+          "updatedAt": "2021-10-09T09:30:49Z"
+        }
+      ]
+    },
+    {
+      "number": 289,
+      "id": "I_kwDOBphpts484Vt5",
+      "title": "Fixed-base key generation",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/289",
+      "state": "OPEN",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The group generator is currently fixed throughout the protocol, but it may useful to let applications vary this. It seems reasonable, for example, to let the public key base be something other than the fixed generator, such as `HashToGroup(something)`. Currently, the public key assumes that the base is the fixed group generator, which is convenient though (I think) not essential.",
+      "createdAt": "2021-10-08T19:27:16Z",
+      "updatedAt": "2021-10-09T12:26:47Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -20044,6 +20086,48 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 287,
+      "id": "PR_kwDOBphpts4s5zNN",
+      "title": "Fixing typo in VerifiableFinalize method signature",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/287",
+      "state": "MERGED",
+      "author": "FredericJacobs",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-10-07T16:26:58Z",
+      "updatedAt": "2021-10-07T17:54:51Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "baseRefName": "master",
+      "baseRefOid": "28800c417c97b83a82b81bdb403acd25d56bcba8",
+      "headRepository": "FredericJacobs/draft-irtf-cfrg-voprf",
+      "headRefName": "patch-1",
+      "headRefOid": "16949a1e823f603f83ec4c96c274d945c88c72ec",
+      "closedAt": "2021-10-07T17:54:51Z",
+      "mergedAt": "2021-10-07T17:54:51Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "ac9f93375a11eccd8b1cfd258539f49d3ea5687c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOBphpts4uJbxu",
+          "commit": {
+            "abbreviatedOid": "16949a1"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "\u2764\ufe0f \ud83d\ude4f ",
+          "createdAt": "2021-10-07T17:54:06Z",
+          "updatedAt": "2021-10-07T17:54:06Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
