@@ -158,7 +158,7 @@ Table of Contents
    groups.  The protocol supports optional verifiability with the
    addition of a non-interactive zero knowledge proof (NIZK).  This
    proof demonstrates correctness of the computation, using a known
-   public key that serves as a commitment to the server's secret key.
+   public key that serves as a commitment to the server's private key.
    The document describes the protocol, application considerations, and
    its security properties.
 
