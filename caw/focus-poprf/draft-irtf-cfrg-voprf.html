@@ -18,8 +18,8 @@ learning anything about the PRF secret key, and the server learns neither
 the PRF input nor output. A Partially-Oblivious PRF (POPRF) is an OPRF
 that allows client and server to provide public input to the
 PRF. OPRFs and POPRFs can also satisfy a notion of 'verifiability'.
-In this setting, clients verify that the server's output is the result of
-evaluating the underlying PRF with an expected a public key. This document
+In this setting, clients can verify that the server used a specific
+private key during the execution of the protocol. This document
 specifies a POPRF protocol with optional verifiability instantiated within
 standard prime-order groups, including elliptic curves. 
     " name="description">
@@ -1086,8 +1086,8 @@ learning anything about the PRF secret key, and the server learns neither
 the PRF input nor output. A Partially-Oblivious PRF (POPRF) is an OPRF
 that allows client and server to provide public input to the
 PRF. OPRFs and POPRFs can also satisfy a notion of 'verifiability'.
-In this setting, clients verify that the server's output is the result of
-evaluating the underlying PRF with an expected a public key. This document
+In this setting, clients can verify that the server used a specific
+private key during the execution of the protocol. This document
 specifies a POPRF protocol with optional verifiability instantiated within
 standard prime-order groups, including elliptic curves.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
@@ -1363,7 +1363,7 @@ about k; and the server does not learn anything about x or F(k, x).
 A Partially-Oblivious PRF (POPRF) is a variant of an OPRF wherein client
 and server interact in computing F(k, x, y), for some PRF F with
 server-provided key k, client-provided input x, and public input y <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span>.
-A POPRF with empty input y is functionally equivalent to an OPRF.
+A POPRF with fixed input y is functionally equivalent to an OPRF.
 A POPRF is said to be 'verifiable' if the server can prove to the client
 that F(k, x, y) was computed using key k, without revealing k to the client.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">POPRFs have a variety of applications, including: password-protected secret
@@ -1372,7 +1372,7 @@ password-authenticated key exchange or PAKE <span>[<a href="#I-D.irtf-cfrg-opaqu
 Verifiable POPRFs are necessary in some applications such as Privacy Pass
 <span>[<a href="#I-D.davidson-pp-protocol" class="xref">I-D.davidson-pp-protocol</a>]</span>. Verifiable POPRFs have also been used for
 password-protected secret sharing schemes such as that of <span>[<a href="#JKK14" class="xref">JKK14</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This document introduces a POPRF protocol built upon prime-order groups.
+<p id="section-1-3">This document introduces a POPRF protocol built upon prime-order groups based on <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span>.
 The protocol supports optional verifiability with the addition of a non-interactive
 zero knowledge proof (NIZK). This proof demonstrates correctness of the computation,
 using a known public key that serves as a commitment to the server's private
@@ -1647,7 +1647,7 @@ in a Python-like pseudocode.<a href="#section-2.2-4" class="pilcrow">¶</a></p>
 the output of the protocol.<a href="#section-2.2-7.5" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.2-7.6">Server: Computes the pseudorandom function over a private key. Learns
-nothing about the client's input.<a href="#section-2.2-7.6" class="pilcrow">¶</a>
+nothing about the client's input or output.<a href="#section-2.2-7.6" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.2-7.7">NIZK: Non-interactive zero knowledge.<a href="#section-2.2-7.7" class="pilcrow">¶</a>
 </li>
@@ -1677,7 +1677,7 @@ their public key. As an example of the nature of attacks that this
 prevents, this ensures that the server uses the same private key for
 computing the verifiable POPRF output and does not attempt to "tag"
 individual clients with select keys. This proof does not reveal the
-server's long-term private key to the client.<a href="#section-3-2" class="pilcrow">¶</a></p>
+server's private key to the client.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">The following one-byte values distinguish between these two modes:<a href="#section-3-3" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
         <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
@@ -1791,8 +1791,8 @@ POPRF contexts. Each API has the following implicit parameters:<a href="#section
 </li>
         </ul>
 <p id="section-3.3-3">The data types <code>PrivateInput</code> and <code>PublicInput</code> are opaque byte strings
-of arbitrary length no larger than 2^13 octets. <code>Proof</code> is a concatenated
-sequence of two <code>SerializedScalar</code> values, as shown below.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+of arbitrary length no larger than 2^13 octets. <code>Proof</code> is a sequence
+of two <code>SerializedScalar</code> values, as shown below.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3.3-4">
 <pre>
 struct {
@@ -1810,7 +1810,7 @@ struct {
 setup and the POPRF key pair. It has three functions, <code>Evaluate</code>,
 <code>FullEvaluate</code> and <code>VerifyFinalize</code> described below. <code>Evaluate</code> takes
 serialized representations of blinded group elements from the client
-as inputs along with public metadata input.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
+as inputs along with public input <code>info</code>.<a href="#section-3.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.1-2"><code>FullEvaluate</code> takes PrivateInput values, and it is useful for applications
 that need to compute the whole POPRF protocol on the server side only.<a href="#section-3.3.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.3.1-3"><code>VerifyFinalize</code> takes PrivateInput values and their corresponding output
@@ -2692,8 +2692,9 @@ as 3HashSDHI given by <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</spa
 evaluations in one go, whilst only constructing one NIZK proof object.
 This is enabled using an established batching technique.<a href="#section-6.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.2.1-2">The cryptographic security of the construction is based on the assumption
-that the One-More Gap SDHI assumption from <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span> is computationally
-difficult to solve. <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span> show that both the One-More Gap CDH
+that the One-More Gap Strong Diffie-Hellman Inversion (SDHI) assumption from
+<span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span> is computationally difficult to solve. <span>[<a href="#TCRSTW21" class="xref">TCRSTW21</a>]</span> show that
+both the One-More Gap Computational Diffie Hellman (CDH)
 assumption and the One-More Gap SDHI assumption reduce to the q-DL assumption
 in the algebraic group model, for some q number of <code>Evaluate</code> queries.
 (The One-More Gap CDH assumption was the hardness assumption used to
