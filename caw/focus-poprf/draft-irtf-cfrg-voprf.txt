@@ -1200,7 +1200,7 @@ def VerifiableFinalize(input, blind, blindedPublicKey, evaluatedElement, blinded
 
 6.1.  Security Properties
 
-   The security properties of an OPRF protocol with functionality y =
+   The security properties of a POPRF protocol with functionality y =
    F(k, x, t) include those of a standard PRF.  Specifically:
 
    *  Pseudorandomness: F is pseudorandom if the output y = F(k, x, t)
