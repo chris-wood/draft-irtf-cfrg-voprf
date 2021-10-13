@@ -1726,7 +1726,7 @@ the protocol runs to compute <code>output = F(skS, input, info)</code> as follow
 <p id="section-3.1-3">In <code>Blind</code> the client generates a blinded element and blinding data. The server
 computes the POPRF evaluation in <code>Evaluate</code> over the client's blinded element,
 and public information <code>info</code>. In <code>Finalize</code> the client unblinds the server
-response and produces a byte array corresponding to POPRF output.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+response and produces the POPRF output.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.1-4">In the verifiable mode of the protocol, the server additionally computes
 a proof in Evaluate. The client verifies this proof using the server's
 expected public key before completing the protocol and producing the
