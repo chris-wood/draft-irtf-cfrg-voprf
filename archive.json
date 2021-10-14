@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-10T00:40:58.556586+00:00",
+  "timestamp": "2021-10-14T00:37:43.475569+00:00",
   "repo": "cfrg/draft-irtf-cfrg-voprf",
   "labels": [
     {
@@ -4070,9 +4070,9 @@
         "chris-wood"
       ],
       "labels": [],
-      "body": "In Finalize, we include `evaluatedElement` in the hash input, which seems redundant with `input`. We could probably drop `input` from this step, which would simplify the API quite a bit too.",
+      "body": "In Finalize, we include `evaluatedElement` in the hash input, which seems redundant with `input`. We could probably drop `input` from this step, which would simplify the API quite a bit too. Or we could replace it with the representative of `input` in the group (`HashToGroup(input)`).",
       "createdAt": "2021-10-08T18:36:03Z",
-      "updatedAt": "2021-10-09T09:30:49Z",
+      "updatedAt": "2021-10-12T12:00:13Z",
       "closedAt": null,
       "comments": [
         {
@@ -4097,6 +4097,22 @@
       "body": "The group generator is currently fixed throughout the protocol, but it may useful to let applications vary this. It seems reasonable, for example, to let the public key base be something other than the fixed generator, such as `HashToGroup(something)`. Currently, the public key assumes that the base is the fixed group generator, which is convenient though (I think) not essential.",
       "createdAt": "2021-10-08T19:27:16Z",
       "updatedAt": "2021-10-09T12:26:47Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 290,
+      "id": "I_kwDOBphpts49HucY",
+      "title": "trigger an error when the inverse of `k+m` does not exist",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/290",
+      "state": "OPEN",
+      "author": "armfazh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "do we need to include an error when the inverse of `k+m` does not exist?\r\n\r\n_Originally posted by @armfazh in https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/284#discussion_r727727425_",
+      "createdAt": "2021-10-13T16:05:00Z",
+      "updatedAt": "2021-10-13T16:05:00Z",
       "closedAt": null,
       "comments": []
     }
@@ -19971,13 +19987,13 @@
       "labels": [],
       "body": "There's still some other editorial changes I'd like to make, like using single-letter variable names for scalars in all operations consistently, but this is just a start. \r\n\r\ncc @nirvantyagi for \ud83d\udc40 on the updated security consideration section near the end",
       "createdAt": "2021-09-29T22:44:22Z",
-      "updatedAt": "2021-10-06T17:57:20Z",
+      "updatedAt": "2021-10-13T18:06:10Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "56dc5dfe922686462b34f7089adc3877ec57f0b8",
       "headRepository": "cfrg/draft-irtf-cfrg-voprf",
       "headRefName": "caw/focus-poprf",
-      "headRefOid": "f613177863ab70c8efd0a8a314ed454c0d8524a3",
+      "headRefOid": "723473e622b7c9cf230849bd2d1cd699496b1f35",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -19996,6 +20012,20 @@
           "body": "ack: Added to my list.",
           "createdAt": "2021-10-06T17:57:20Z",
           "updatedAt": "2021-10-06T17:57:20Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ping @alxdavids?",
+          "createdAt": "2021-10-12T12:41:32Z",
+          "updatedAt": "2021-10-12T12:41:32Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@armfazh suggestions applied -- please let me know if more changes are required. @alxdavids, please review.",
+          "createdAt": "2021-10-13T12:44:46Z",
+          "updatedAt": "2021-10-13T12:44:46Z"
         }
       ],
       "reviews": [
@@ -20054,6 +20084,569 @@
               "body": "Great suggestion! I'll weave it in.",
               "createdAt": "2021-10-04T15:02:12Z",
               "updatedAt": "2021-10-04T16:18:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uYNge",
+          "commit": {
+            "abbreviatedOid": "f613177"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T05:18:25Z",
+          "updatedAt": "2021-10-13T06:54:40Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nserver-provided key k, client-provided input x, and public input y {{TCRSTW21}}.\r\n```",
+              "createdAt": "2021-10-13T05:18:25Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 68,
+              "body": "I think the same applies if we replace empty by fixed.\r\n`A POPRF with fixed input y ...`\r\n",
+              "createdAt": "2021-10-13T05:20:57Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 67,
+              "body": "The reference for PO-PRF is ECS15 https://eprint.iacr.org/2015/644\r\nas they introduced the definition.",
+              "createdAt": "2021-10-13T05:33:18Z",
+              "updatedAt": "2021-10-13T06:54:41Z"
+            },
+            {
+              "originalPosition": 79,
+              "body": "This document introduces a POPRF protocol built upon prime-order groups based on {{TCRSTW21}}",
+              "createdAt": "2021-10-13T05:35:23Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "this sentence is odd. we haven't introduce the use of public keys in PRFs; also, the server's output is different from PRF's output.\r\n\r\n`Clients can verify that the server used a specific private key during the execution of the protocol.`\r\n",
+              "createdAt": "2021-10-13T05:41:52Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 21,
+              "body": "The purpose of the protocol is not to `agree on` a public input.\r\n\r\n`A Partially-Oblivious PRF (POPRF) is an OPRF wherein both client and server are allowed to include some public input`",
+              "createdAt": "2021-10-13T05:44:01Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 82,
+              "body": "```suggestion\r\nusing a known public key that serves as a commitment to the server's private\r\n```",
+              "createdAt": "2021-10-13T05:44:55Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 107,
+              "body": "VPOPRF: Verifiable Partially-Oblivious Pseudorandom Function.",
+              "createdAt": "2021-10-13T05:46:43Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 112,
+              "body": "```suggestion\r\n  nothing about the client's input and output.\r\n```",
+              "createdAt": "2021-10-13T05:47:42Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 144,
+              "body": "maybe remove `long-term` (we haven't mentioned that key must or not be long-term).",
+              "createdAt": "2021-10-13T05:50:15Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 172,
+              "body": "```suggestion\r\nresponse and produces the POPRF output.\r\n```",
+              "createdAt": "2021-10-13T05:51:38Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 196,
+              "body": "```suggestion\r\n- contextString, a domain separation tag constructed during the setup phase.\r\n```",
+              "createdAt": "2021-10-13T05:54:30Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 199,
+              "body": "Proof contains two values of SerializedScalar type.",
+              "createdAt": "2021-10-13T05:56:02Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 220,
+              "body": "```suggestion\r\nas inputs along with public input 'info'.\r\n```",
+              "createdAt": "2021-10-13T05:57:06Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 214,
+              "body": "```suggestion\r\nthe setup phase and the POPRF key pair. It has three functions, `Evaluate`,\r\n```",
+              "createdAt": "2021-10-13T05:59:00Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 306,
+              "body": "Proof is a struct, isn't it?",
+              "createdAt": "2021-10-13T06:02:50Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 447,
+              "body": "do we need to include an error when the inverse of `k+m` does not exist?",
+              "createdAt": "2021-10-13T06:08:11Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 471,
+              "body": "```suggestion\r\nThe security properties of a POPRF protocol with functionality\r\n```",
+              "createdAt": "2021-10-13T06:09:41Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 513,
+              "body": "```suggestion\r\n- Verifiability: The client must only complete execution of the protocol if\r\n```",
+              "createdAt": "2021-10-13T06:12:35Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 513,
+              "body": "hmm, not so sure.",
+              "createdAt": "2021-10-13T06:13:03Z",
+              "updatedAt": "2021-10-13T06:54:41Z"
+            },
+            {
+              "originalPosition": 526,
+              "body": "```suggestion\r\nAny POPRF that satisfies the 'verifiability' property is known as a\r\n```",
+              "createdAt": "2021-10-13T06:15:42Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 530,
+              "body": "```suggestion\r\nplace. Then the client uses this commitment to verify that the server has used the key in the\r\nprotocol. In the following, we may also refer to this\r\n```",
+              "createdAt": "2021-10-13T06:17:15Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 651,
+              "body": "One-More Gap Strong Diffie-Hellman Inversion (SDHI) assumption",
+              "createdAt": "2021-10-13T06:24:15Z",
+              "updatedAt": "2021-10-13T06:54:40Z"
+            },
+            {
+              "originalPosition": 651,
+              "body": "Computational Diffie-Hellman (CDH) assumption",
+              "createdAt": "2021-10-13T06:25:16Z",
+              "updatedAt": "2021-10-13T06:54:41Z"
+            },
+            {
+              "originalPosition": 662,
+              "body": "double check if this is accurate\r\n`retrieving instances of the strong Diffie-Hellman problem, in which an adversary can query a group element`\r\n\r\n",
+              "createdAt": "2021-10-13T06:35:31Z",
+              "updatedAt": "2021-10-13T06:54:41Z"
+            },
+            {
+              "originalPosition": 760,
+              "body": "does the first paragraph still applies to POPRF?\r\n",
+              "createdAt": "2021-10-13T06:54:26Z",
+              "updatedAt": "2021-10-13T06:54:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZwov",
+          "commit": {
+            "abbreviatedOid": "2b3c751"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:31:24Z",
+          "updatedAt": "2021-10-13T12:31:25Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nthat allows client and server to provide public input to the\r\n```",
+              "createdAt": "2021-10-13T12:31:24Z",
+              "updatedAt": "2021-10-13T12:31:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZxQy",
+          "commit": {
+            "abbreviatedOid": "2b3c751"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:33:39Z",
+          "updatedAt": "2021-10-13T12:33:39Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Much better!",
+              "createdAt": "2021-10-13T12:33:39Z",
+              "updatedAt": "2021-10-13T12:33:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZxlf",
+          "commit": {
+            "abbreviatedOid": "f43ca44"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:34:47Z",
+          "updatedAt": "2021-10-13T12:34:48Z",
+          "comments": [
+            {
+              "originalPosition": 107,
+              "body": "We don't use this term anywhere.",
+              "createdAt": "2021-10-13T12:34:47Z",
+              "updatedAt": "2021-10-13T12:34:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZxq3",
+          "commit": {
+            "abbreviatedOid": "f43ca44"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:35:05Z",
+          "updatedAt": "2021-10-13T12:35:06Z",
+          "comments": [
+            {
+              "originalPosition": 112,
+              "body": "Went with 'or output'",
+              "createdAt": "2021-10-13T12:35:05Z",
+              "updatedAt": "2021-10-13T12:35:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZxun",
+          "commit": {
+            "abbreviatedOid": "f43ca44"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:35:18Z",
+          "updatedAt": "2021-10-13T12:35:18Z",
+          "comments": [
+            {
+              "originalPosition": 144,
+              "body": "\ud83d\udc4d ",
+              "createdAt": "2021-10-13T12:35:18Z",
+              "updatedAt": "2021-10-13T12:35:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZx6t",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:35:57Z",
+          "updatedAt": "2021-10-13T12:35:58Z",
+          "comments": [
+            {
+              "originalPosition": 196,
+              "body": "Keeping as-is.",
+              "createdAt": "2021-10-13T12:35:57Z",
+              "updatedAt": "2021-10-13T12:35:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZyBd",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:36:20Z",
+          "updatedAt": "2021-10-13T12:36:21Z",
+          "comments": [
+            {
+              "originalPosition": 199,
+              "body": "These are not changes new to this PR?",
+              "createdAt": "2021-10-13T12:36:20Z",
+              "updatedAt": "2021-10-13T12:36:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZyHJ",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:36:41Z",
+          "updatedAt": "2021-10-13T12:36:42Z",
+          "comments": [
+            {
+              "originalPosition": 214,
+              "body": "Keeping as-is.",
+              "createdAt": "2021-10-13T12:36:42Z",
+              "updatedAt": "2021-10-13T12:36:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZyLc",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:36:56Z",
+          "updatedAt": "2021-10-13T12:36:56Z",
+          "comments": [
+            {
+              "originalPosition": 220,
+              "body": "\ud83d\udc4d ",
+              "createdAt": "2021-10-13T12:36:56Z",
+              "updatedAt": "2021-10-13T12:36:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZykX",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:38:15Z",
+          "updatedAt": "2021-10-13T12:38:16Z",
+          "comments": [
+            {
+              "originalPosition": 306,
+              "body": "It is, but it's encoded this way.",
+              "createdAt": "2021-10-13T12:38:15Z",
+              "updatedAt": "2021-10-13T12:38:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZyuE",
+          "commit": {
+            "abbreviatedOid": "3a87692"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:38:46Z",
+          "updatedAt": "2021-10-13T12:38:46Z",
+          "comments": [
+            {
+              "originalPosition": 447,
+              "body": "Maybe? File a new issue?",
+              "createdAt": "2021-10-13T12:38:46Z",
+              "updatedAt": "2021-10-13T12:38:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZzAr",
+          "commit": {
+            "abbreviatedOid": "78e8ec8"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:39:43Z",
+          "updatedAt": "2021-10-13T12:39:44Z",
+          "comments": [
+            {
+              "originalPosition": 526,
+              "body": "Keeping as-is.",
+              "createdAt": "2021-10-13T12:39:43Z",
+              "updatedAt": "2021-10-13T12:39:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZzFO",
+          "commit": {
+            "abbreviatedOid": "78e8ec8"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:39:58Z",
+          "updatedAt": "2021-10-13T12:39:58Z",
+          "comments": [
+            {
+              "originalPosition": 530,
+              "body": "Keeping as-is.",
+              "createdAt": "2021-10-13T12:39:58Z",
+              "updatedAt": "2021-10-13T12:39:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZzd5",
+          "commit": {
+            "abbreviatedOid": "78e8ec8"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:41:22Z",
+          "updatedAt": "2021-10-13T12:41:22Z",
+          "comments": [
+            {
+              "originalPosition": 651,
+              "body": "\ud83d\udc4d ",
+              "createdAt": "2021-10-13T12:41:22Z",
+              "updatedAt": "2021-10-13T12:41:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZzg6",
+          "commit": {
+            "abbreviatedOid": "78e8ec8"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:41:31Z",
+          "updatedAt": "2021-10-13T12:41:32Z",
+          "comments": [
+            {
+              "originalPosition": 662,
+              "body": "Confirmed",
+              "createdAt": "2021-10-13T12:41:31Z",
+              "updatedAt": "2021-10-13T12:41:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uZzmx",
+          "commit": {
+            "abbreviatedOid": "78e8ec8"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T12:41:50Z",
+          "updatedAt": "2021-10-13T12:41:51Z",
+          "comments": [
+            {
+              "originalPosition": 760,
+              "body": "This is external to the protocol, so we don't need any of this text",
+              "createdAt": "2021-10-13T12:41:50Z",
+              "updatedAt": "2021-10-13T12:41:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4ua324",
+          "commit": {
+            "abbreviatedOid": "723473e"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T16:04:19Z",
+          "updatedAt": "2021-10-13T16:04:20Z",
+          "comments": [
+            {
+              "originalPosition": 306,
+              "body": "the problem is that later in the pseudocode you access to the fields as `proof.c` and `proof.s`",
+              "createdAt": "2021-10-13T16:04:20Z",
+              "updatedAt": "2021-10-13T16:04:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4ubPQA",
+          "commit": {
+            "abbreviatedOid": "723473e"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T17:27:56Z",
+          "updatedAt": "2021-10-13T17:27:57Z",
+          "comments": [
+            {
+              "originalPosition": 306,
+              "body": "I don't think these are incompatible -- this line says \"create a Proof struct that contains serialized c and s\". Please suggest something concrete if you think this should be done differently.",
+              "createdAt": "2021-10-13T17:27:56Z",
+              "updatedAt": "2021-10-13T17:27:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4ubXBt",
+          "commit": {
+            "abbreviatedOid": "723473e"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-13T18:00:45Z",
+          "updatedAt": "2021-10-13T18:00:45Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOBphpts4ubYSI",
+          "commit": {
+            "abbreviatedOid": "723473e"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-13T18:06:02Z",
+          "updatedAt": "2021-10-13T18:06:02Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "reference is still not updated.",
+              "createdAt": "2021-10-13T18:06:02Z",
+              "updatedAt": "2021-10-13T18:06:10Z"
             }
           ]
         }
