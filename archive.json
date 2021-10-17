@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-14T00:37:43.475569+00:00",
+  "timestamp": "2021-10-17T00:39:36.940766+00:00",
   "repo": "cfrg/draft-irtf-cfrg-voprf",
   "labels": [
     {
@@ -4089,15 +4089,15 @@
       "id": "I_kwDOBphpts484Vt5",
       "title": "Fixed-base key generation",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/289",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "chris-wood",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The group generator is currently fixed throughout the protocol, but it may useful to let applications vary this. It seems reasonable, for example, to let the public key base be something other than the fixed generator, such as `HashToGroup(something)`. Currently, the public key assumes that the base is the fixed group generator, which is convenient though (I think) not essential.",
       "createdAt": "2021-10-08T19:27:16Z",
-      "updatedAt": "2021-10-09T12:26:47Z",
-      "closedAt": null,
+      "updatedAt": "2021-10-14T17:27:09Z",
+      "closedAt": "2021-10-14T17:27:09Z",
       "comments": []
     },
     {
@@ -4108,13 +4108,23 @@
       "state": "OPEN",
       "author": "armfazh",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "armfazh"
+      ],
       "labels": [],
       "body": "do we need to include an error when the inverse of `k+m` does not exist?\r\n\r\n_Originally posted by @armfazh in https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/284#discussion_r727727425_",
       "createdAt": "2021-10-13T16:05:00Z",
-      "updatedAt": "2021-10-13T16:05:00Z",
+      "updatedAt": "2021-10-14T17:38:03Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "body": "(oops, didn't mean to unassign!)",
+          "createdAt": "2021-10-14T17:38:03Z",
+          "updatedAt": "2021-10-14T17:38:03Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -16734,7 +16744,7 @@
       "labels": [],
       "body": "Changelog for v06\r\nCloses #231 ",
       "createdAt": "2021-02-21T02:01:10Z",
-      "updatedAt": "2021-02-21T15:30:38Z",
+      "updatedAt": "2021-10-15T19:03:54Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "be33d1606d1774bef14e31a04ad131f4b9ac23b1",
@@ -19477,7 +19487,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2021-07-31T00:02:45Z",
-      "updatedAt": "2021-07-31T02:04:58Z",
+      "updatedAt": "2021-10-15T19:03:56Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "afe67193f4d51b4591d40b537de45c06f485360a",
@@ -19519,7 +19529,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2021-07-31T00:26:38Z",
-      "updatedAt": "2021-08-02T23:49:21Z",
+      "updatedAt": "2021-10-15T19:03:57Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "afe67193f4d51b4591d40b537de45c06f485360a",
@@ -19980,24 +19990,26 @@
       "id": "PR_kwDOBphpts4sefYd",
       "title": "Focus the document on the POPRF construction and its properties",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/284",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "chris-wood",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "There's still some other editorial changes I'd like to make, like using single-letter variable names for scalars in all operations consistently, but this is just a start. \r\n\r\ncc @nirvantyagi for \ud83d\udc40 on the updated security consideration section near the end",
       "createdAt": "2021-09-29T22:44:22Z",
-      "updatedAt": "2021-10-13T18:06:10Z",
+      "updatedAt": "2021-10-14T17:26:50Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "56dc5dfe922686462b34f7089adc3877ec57f0b8",
       "headRepository": "cfrg/draft-irtf-cfrg-voprf",
       "headRefName": "caw/focus-poprf",
       "headRefOid": "723473e622b7c9cf230849bd2d1cd699496b1f35",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-10-14T17:26:50Z",
+      "mergedAt": "2021-10-14T17:26:49Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "cc8976938c08e25d22c349c67acef4b09cc7f11f"
+      },
       "comments": [
         {
           "author": "chris-wood",
@@ -20721,6 +20733,92 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 291,
+      "id": "PR_kwDOBphpts4tOH-y",
+      "title": "Include input element (under HashToGroup) in Finalize DST",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/291",
+      "state": "OPEN",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #288.",
+      "createdAt": "2021-10-14T20:29:19Z",
+      "updatedAt": "2021-10-15T19:13:54Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "baseRefName": "master",
+      "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
+      "headRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "headRefName": "caw/hash-input",
+      "headRefOid": "071bc5e51dc29545b64a26de2d40193e3078df71",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOBphpts4uj5J-",
+          "commit": {
+            "abbreviatedOid": "071bc5e"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-15T19:13:15Z",
+          "updatedAt": "2021-10-15T19:13:15Z",
+          "comments": [
+            {
+              "originalPosition": 122,
+              "body": "this secret key is not the same as the one in the JSON file.",
+              "createdAt": "2021-10-15T19:13:15Z",
+              "updatedAt": "2021-10-15T19:13:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4uj5RL",
+          "commit": {
+            "abbreviatedOid": "071bc5e"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "changes are ok, double-check test vectors.",
+          "createdAt": "2021-10-15T19:13:54Z",
+          "updatedAt": "2021-10-15T19:13:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 292,
+      "id": "PR_kwDOBphpts4tQ8vz",
+      "title": "Adds an error signaling the inverse cannot be computed.",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/292",
+      "state": "OPEN",
+      "author": "armfazh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds an error signaling the inverse cannot be computed.\r\nIt follows the style and conventions in current pseudocode.",
+      "createdAt": "2021-10-15T18:40:34Z",
+      "updatedAt": "2021-10-15T18:40:34Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "baseRefName": "master",
+      "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
+      "headRepository": "armfazh/draft-irtf-cfrg-voprf",
+      "headRefName": "errInv",
+      "headRefOid": "3ef78fa6da88138db9c24684216e04f4e157fcc9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
