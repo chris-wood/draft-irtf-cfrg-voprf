@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-17T00:39:36.940766+00:00",
+  "timestamp": "2021-10-21T00:45:40.174580+00:00",
   "repo": "cfrg/draft-irtf-cfrg-voprf",
   "labels": [
     {
@@ -20746,7 +20746,7 @@
       "labels": [],
       "body": "Closes #288.",
       "createdAt": "2021-10-14T20:29:19Z",
-      "updatedAt": "2021-10-15T19:13:54Z",
+      "updatedAt": "2021-10-19T23:30:51Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
@@ -20787,9 +20787,9 @@
           "author": "armfazh",
           "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
-          "body": "changes are ok, double-check test vectors.",
+          "body": "changes are ok; but pls double-check test vectors.",
           "createdAt": "2021-10-15T19:13:54Z",
-          "updatedAt": "2021-10-15T19:13:54Z",
+          "updatedAt": "2021-10-19T23:30:51Z",
           "comments": []
         }
       ]
@@ -20806,13 +20806,53 @@
       "labels": [],
       "body": "Adds an error signaling the inverse cannot be computed.\r\nIt follows the style and conventions in current pseudocode.",
       "createdAt": "2021-10-15T18:40:34Z",
-      "updatedAt": "2021-10-15T18:40:34Z",
+      "updatedAt": "2021-10-19T12:45:40Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
       "headRepository": "armfazh/draft-irtf-cfrg-voprf",
       "headRefName": "errInv",
       "headRefOid": "3ef78fa6da88138db9c24684216e04f4e157fcc9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOBphpts4urw0-",
+          "commit": {
+            "abbreviatedOid": "3ef78fa"
+          },
+          "author": "alxdavids",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-19T12:45:40Z",
+          "updatedAt": "2021-10-19T12:45:40Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 293,
+      "id": "PR_kwDOBphpts4tdvtn",
+      "title": "Add the oprf-ts TypeScript implementation",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/293",
+      "state": "OPEN",
+      "author": "rolfeschmidt",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-10-20T23:07:38Z",
+      "updatedAt": "2021-10-20T23:07:38Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "baseRefName": "master",
+      "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
+      "headRepository": "rolfeschmidt/draft-irtf-cfrg-voprf",
+      "headRefName": "master",
+      "headRefOid": "dc39cd1ce8d11d75a69d1d807a9cecfa2057b057",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
