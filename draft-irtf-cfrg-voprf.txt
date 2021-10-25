@@ -576,7 +576,7 @@ Table of Contents
 
      SerializedElement evaluatedElement
 
-   Errors: DeserializeError
+   Errors: DeserializeError, InverseError
 
    def Evaluate(skS, blindedElement, info):
      R = GG.DeserializeElement(blindedElement)
@@ -584,6 +584,8 @@ Table of Contents
                I2OSP(len(info), 2) || info
      m = GG.HashToScalar(context)
      t = skS + m
+     if t == 0:
+         raise InverseError
      Z = t^(-1) * R
      evaluatedElement = GG.SerializeElement(Z)
 
@@ -601,12 +603,16 @@ Table of Contents
 
      opaque output[Nh]
 
+   Errors: InverseError
+
    def FullEvaluate(skS, input):
      P = GG.HashToGroup(input)
      context = "Context-" || contextString ||
                I2OSP(len(info), 2) || info
      m = GG.HashToScalar(context)
      t = skS + m
+     if t == 0:
+         raise InverseError
      T = t^(-1) * P
      issuedElement = GG.SerializeElement(T)
 
@@ -666,7 +672,7 @@ Table of Contents
      SerializedElement evaluatedElement
      Proof proof
 
-   Errors: DeserializeError
+   Errors: DeserializeError, InverseError
 
    def Evaluate(skS, blindedElement, info):
      R = GG.DeserializeElement(blindedElement)
@@ -674,6 +680,8 @@ Table of Contents
                I2OSP(len(info), 2) || info
      m = GG.HashToScalar(context)
      t = skS + m
+     if t == 0:
+         raise InverseError
      Z = t^(-1) * R
 
      U = ScalarBaseMult(t)
@@ -919,6 +927,8 @@ Table of Contents
    Output:
 
      boolean verified
+
+   Errors: DeserializeError
 
    def VerifyProof(A, B, C, D, proof):
      Cs = [C]
@@ -1173,6 +1183,8 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
 
    *  DeserializeError: Group element or scalar deserialization failure;
       Section 2.1.
+
+   *  InverseError: A scalar is zero and has no inverse; Section 2.1.
 
    The errors in this document are meant as a guide to implementors.
    They are not an exhaustive list of all the errors an implementation
