@@ -164,6 +164,16 @@ Table of Contents
 
 1.1.  Change log
 
+   draft-08 (https://tools.ietf.org/html/draft-irtf-cfrg-voprf-08):
+
+   *  Adopt partially-oblivious PRF construction from [TCRSTW21].
+
+   *  Update P-384 suite to use SHA-384 instead of SHA-512.
+
+   *  Update test vectors.
+
+   *  Apply various editorial changes.
+
    draft-07 (https://tools.ietf.org/html/draft-irtf-cfrg-voprf-07):
 
    *  Bind blinding mechanism to mode (additive for verifiable mode and
@@ -1417,23 +1427,6 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
 
 8.1.  Normative References
 
-   [BB04]     "Short Signatures Without Random Oracles",
-              <http://ai.stanford.edu/~xb/eurocrypt04a/bbsigs.pdf>.
-
-   [BG04]     "The Static Diffie-Hellman Problem",
-              <https://eprint.iacr.org/2004/306>.
-
-   [Cheon06]  "Security Analysis of the Strong Diffie-Hellman Problem",
-              <https://www.iacr.org/archive/
-              eurocrypt2006/40040001/40040001.pdf>.
-
-   [DGSTV18]  "Privacy Pass, Bypassing Internet Challenges Anonymously",
-              <https://www.degruyter.com/view/j/popets.2018.2018.issue-
-              3/popets-2018-0026/popets-2018-0026.xml>.
-
-   [ECS15]    "The pythia PRF service",
-              <https://eprint.iacr.org/2015/644.pdf>.
-
    [I-D.davidson-pp-protocol]
               Davidson, A., "Privacy Pass: The Protocol", Work in
               Progress, Internet-Draft, draft-davidson-pp-protocol-01,
@@ -1455,26 +1448,10 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
               opaque-06>.
 
-   [JKK14]    "Round-Optimal Password-Protected Secret Sharing and
-              T-PAKE in the Password-Only model",
-              <https://eprint.iacr.org/2014/650>.
-
-   [JKKX16]   "Highly-Efficient and Composable Password-Protected Secret
-              Sharing (Or, How to Protect Your Bitcoin Wallet Online)",
-              <https://eprint.iacr.org/2016/144>.
-
-   [PrivacyPass]
-              "Privacy Pass",
-              <https://github.com/privacypass/challenge-bypass-server>.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://datatracker.ietf.org/doc/html/rfc2119>.
-
-   [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
-              for Security", RFC 7748, DOI 10.17487/RFC7748, January
-              2016, <https://datatracker.ietf.org/doc/html/rfc7748>.
 
    [RFC8017]  Moriarty, K., Ed., Kaliski, B., Jonsson, J., and A. Rusch,
               "PKCS #1: RSA Cryptography Specifications Version 2.2",
@@ -1485,10 +1462,6 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
-   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://datatracker.ietf.org/doc/html/rfc8446>.
-
    [RISTRETTO]
               Valence, H. D., Grigg, J., Tankersley, G., Valsorda, F.,
               Lovecruft, I., and M. Hamburg, "The ristretto255 and
@@ -1496,6 +1469,47 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
               irtf-cfrg-ristretto255-decaf448-01, 4 August 2021,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
               ristretto255-decaf448-01>.
+
+8.2.  Informative References
+
+   [BG04]     "The Static Diffie-Hellman Problem",
+              <https://eprint.iacr.org/2004/306>.
+
+   [Cheon06]  "Security Analysis of the Strong Diffie-Hellman Problem",
+              <https://www.iacr.org/archive/
+              eurocrypt2006/40040001/40040001.pdf>.
+
+   [DGSTV18]  "Privacy Pass, Bypassing Internet Challenges Anonymously",
+              <https://www.degruyter.com/view/j/popets.2018.2018.issue-
+              3/popets-2018-0026/popets-2018-0026.xml>.
+
+   [JKK14]    "Round-Optimal Password-Protected Secret Sharing and
+              T-PAKE in the Password-Only model",
+              <https://eprint.iacr.org/2014/650>.
+
+   [JKKX16]   "Highly-Efficient and Composable Password-Protected Secret
+              Sharing (Or, How to Protect Your Bitcoin Wallet Online)",
+              <https://eprint.iacr.org/2016/144>.
+
+   [keyagreement]
+              Barker, E., Chen, L., Roginsky, A., Vassilev, A., and R.
+              Davis, "Recommendation for pair-wise key-establishment
+              schemes using discrete logarithm cryptography", National
+              Institute of Standards and Technology report,
+              DOI 10.6028/nist.sp.800-56ar3, April 2018,
+              <https://doi.org/10.6028/nist.sp.800-56ar3>.
+
+   [PrivacyPass]
+              "Privacy Pass",
+              <https://github.com/privacypass/challenge-bypass-server>.
+
+   [RFC7748]  Langley, A., Hamburg, M., and S. Turner, "Elliptic Curves
+              for Security", RFC 7748, DOI 10.17487/RFC7748, January
+              2016, <https://datatracker.ietf.org/doc/html/rfc7748>.
+
+   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://datatracker.ietf.org/doc/html/rfc8446>.
 
    [SEC1]     Standards for Efficient Cryptography Group (SECG), ., "SEC
               1: Elliptic Curve Cryptography",
@@ -1514,21 +1528,6 @@ def VerifiableFinalize(input, blind, pkS, evaluatedElement, blindedElement, pkS,
    [x9.62]    ANSI, "Public Key Cryptography for the Financial Services
               Industry: the Elliptic Curve Digital Signature Algorithm
               (ECDSA)", ANSI X9.62-1998, September 1998.
-
-8.2.  Informative References
-
-   [JKX21]    Jarecki, S., Krawczyk, H., and J. Xu, "On the (In)Security
-              of the Diffie-Hellman Oblivious PRF with Multiplicative
-              Blinding", PKC'21 , March 2021,
-              <https://eprint.iacr.org/2021/273>.
-
-   [keyagreement]
-              Barker, E., Chen, L., Roginsky, A., Vassilev, A., and R.
-              Davis, "Recommendation for pair-wise key-establishment
-              schemes using discrete logarithm cryptography", National
-              Institute of Standards and Technology report,
-              DOI 10.6028/nist.sp.800-56ar3, April 2018,
-              <https://doi.org/10.6028/nist.sp.800-56ar3>.
 
 Appendix A.  Test Vectors
 
