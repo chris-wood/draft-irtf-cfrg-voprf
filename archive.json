@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-24T00:40:15.884813+00:00",
+  "timestamp": "2021-10-26T00:38:15.458672+00:00",
   "repo": "cfrg/draft-irtf-cfrg-voprf",
   "labels": [
     {
@@ -4023,15 +4023,15 @@
       "id": "I_kwDOBphpts48MqB4",
       "title": "Update version context string and change log",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/282",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "chris-wood",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This will also update the test vectors.",
       "createdAt": "2021-09-28T16:15:42Z",
-      "updatedAt": "2021-09-28T16:15:42Z",
-      "closedAt": null,
+      "updatedAt": "2021-10-25T21:45:10Z",
+      "closedAt": "2021-10-25T21:45:10Z",
       "comments": []
     },
     {
@@ -4105,7 +4105,7 @@
       "id": "I_kwDOBphpts49HucY",
       "title": "trigger an error when the inverse of `k+m` does not exist",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/issues/290",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "armfazh",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -4114,8 +4114,8 @@
       "labels": [],
       "body": "do we need to include an error when the inverse of `k+m` does not exist?\r\n\r\n_Originally posted by @armfazh in https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/284#discussion_r727727425_",
       "createdAt": "2021-10-13T16:05:00Z",
-      "updatedAt": "2021-10-14T17:38:03Z",
-      "closedAt": null,
+      "updatedAt": "2021-10-25T21:21:17Z",
+      "closedAt": "2021-10-25T21:21:16Z",
       "comments": [
         {
           "author": "chris-wood",
@@ -20799,24 +20799,26 @@
       "id": "PR_kwDOBphpts4tQ8vz",
       "title": "Adds an error signaling the inverse cannot be computed.",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/292",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "armfazh",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adds an error signaling the inverse cannot be computed.\r\nIt follows the style and conventions in current pseudocode.",
       "createdAt": "2021-10-15T18:40:34Z",
-      "updatedAt": "2021-10-19T12:45:40Z",
+      "updatedAt": "2021-10-25T20:48:25Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
-      "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
+      "baseRefOid": "2c266fe6d7cf12d9b97dc86453730c6735f85fa8",
       "headRepository": "armfazh/draft-irtf-cfrg-voprf",
       "headRefName": "errInv",
-      "headRefOid": "3ef78fa6da88138db9c24684216e04f4e157fcc9",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "1c2eeab67042db850d910646f94331c6508c4013",
+      "closedAt": "2021-10-25T20:48:25Z",
+      "mergedAt": "2021-10-25T20:48:25Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "30f61bbfefa5c4e72f553fd6ef2520c1bb15b865"
+      },
       "comments": [],
       "reviews": [
         {
@@ -20831,6 +20833,59 @@
           "createdAt": "2021-10-19T12:45:40Z",
           "updatedAt": "2021-10-19T12:45:40Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOBphpts4u-_ZH",
+          "commit": {
+            "abbreviatedOid": "3ef78fa"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2021-10-25T15:13:00Z",
+          "updatedAt": "2021-10-25T15:13:07Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Shouldn't we actually check for zero and then raise this error? As of now, the conditions in which this is returned are not clear.",
+              "createdAt": "2021-10-25T15:13:01Z",
+              "updatedAt": "2021-10-25T15:13:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4u_9sW",
+          "commit": {
+            "abbreviatedOid": "1c2eeab"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-25T19:19:53Z",
+          "updatedAt": "2021-10-25T19:19:53Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "updated now,",
+              "createdAt": "2021-10-25T19:19:53Z",
+              "updatedAt": "2021-10-25T19:19:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBphpts4vAShr",
+          "commit": {
+            "abbreviatedOid": "1c2eeab"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-25T20:48:21Z",
+          "updatedAt": "2021-10-25T20:48:21Z",
+          "comments": []
         }
       ]
     },
@@ -20839,52 +20894,134 @@
       "id": "PR_kwDOBphpts4tdvtn",
       "title": "Add the oprf-ts TypeScript implementation",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/293",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "rolfeschmidt",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2021-10-20T23:07:38Z",
-      "updatedAt": "2021-10-20T23:07:38Z",
+      "updatedAt": "2021-10-25T15:12:20Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
       "headRepository": "rolfeschmidt/draft-irtf-cfrg-voprf",
       "headRefName": "master",
       "headRefOid": "dc39cd1ce8d11d75a69d1d807a9cecfa2057b057",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-10-25T15:12:20Z",
+      "mergedAt": "2021-10-25T15:12:20Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "64de5cef41e87d815d39574b3eb6822d69e813a5"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOBphpts4u-_JC",
+          "commit": {
+            "abbreviatedOid": "dc39cd1"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-25T15:12:16Z",
+          "updatedAt": "2021-10-25T15:12:16Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 294,
       "id": "PR_kwDOBphpts4tkayD",
       "title": "Updating Cloudflare affiliation.",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/294",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "armfazh",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2021-10-22T21:31:11Z",
-      "updatedAt": "2021-10-22T21:31:11Z",
+      "updatedAt": "2021-10-25T18:21:33Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
       "baseRefName": "master",
       "baseRefOid": "cc8976938c08e25d22c349c67acef4b09cc7f11f",
       "headRepository": "armfazh/draft-irtf-cfrg-voprf",
       "headRefName": "cf",
       "headRefOid": "f91be6513d5744968c801582b859f30b9f86e222",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-10-25T18:21:33Z",
+      "mergedAt": "2021-10-25T18:21:33Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "2c266fe6d7cf12d9b97dc86453730c6735f85fa8"
+      },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 295,
+      "id": "PR_kwDOBphpts4tpBAi",
+      "title": "Bump version DST to 08 and update test vectors",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-voprf/pull/295",
+      "state": "MERGED",
+      "author": "chris-wood",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @bytemare, @kevinlewi ",
+      "createdAt": "2021-10-25T18:21:20Z",
+      "updatedAt": "2021-10-25T21:03:28Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "baseRefName": "master",
+      "baseRefOid": "64de5cef41e87d815d39574b3eb6822d69e813a5",
+      "headRepository": "cfrg/draft-irtf-cfrg-voprf",
+      "headRefName": "caw/bump-dst",
+      "headRefOid": "31128c8aef5ebd425c99ae6fa45424a37e9e1332",
+      "closedAt": "2021-10-25T21:03:28Z",
+      "mergedAt": "2021-10-25T21:03:28Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "63c369bb661078e040ca75ca1800b57e556f65d3"
+      },
+      "comments": [
+        {
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "At the end, this version string will be attached to the RFC number? I believe we were using version to match the draft version.",
+          "createdAt": "2021-10-25T19:09:49Z",
+          "updatedAt": "2021-10-25T19:09:49Z"
+        },
+        {
+          "author": "kevinlewi",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Shouldn't this change the draft text as well (instead of just the code)?",
+          "createdAt": "2021-10-25T21:01:33Z",
+          "updatedAt": "2021-10-25T21:01:33Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@kevinlewi it does :) ",
+          "createdAt": "2021-10-25T21:03:10Z",
+          "updatedAt": "2021-10-25T21:03:10Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOBphpts4vAUvh",
+          "commit": {
+            "abbreviatedOid": "492c8a4"
+          },
+          "author": "armfazh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-25T20:58:50Z",
+          "updatedAt": "2021-10-25T20:58:50Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
